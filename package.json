@@ -1,0 +1,38 @@
+{
+  "name": "highcharts-vue",
+  "version": "1.0.0",
+  "description": "Highcharts wrapper Vue component",
+  "main": "dist/module/highcharts-vue.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:script-tag": "webpack --config config/webpack-script-tag.config.js",
+    "build:module": "webpack --config config/webpack-module.config.js",
+    "build": "npm run build:script-tag && npm run build:module",
+    "build:app": "cd demo && npm install",
+    "app": "cd demo && npm run dev",
+    "lint": "eslint . --ext .js,.vue",
+    "lint:fix": "eslint . --ext .js,.vue --fix"
+  },
+  "keywords": [
+    "highcharts",
+    "wrapper",
+    "vue",
+    "component"
+  ],
+  "author": "Daniel Studencki <daniel.studencki@gmail.com>",
+  "license": "ISC",
+  "peerDependencies": {
+    "highcharts": ">=5.0.0",
+    "vue": ">=1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "babel-loader": "^8.0.0-beta.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.2.2",
+    "standard": "^10.0.3",
+    "webpack": "^3.10.0"
+  }
+}

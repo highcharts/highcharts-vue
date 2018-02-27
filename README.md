@@ -132,6 +132,18 @@ Then, `someFunction` will be called when chart is loaded.
 
 You can access the Chart object instance if necessary (e.g when need to get some data or use any of Chart.prototype functions) by calling specific Vue component instance `chart` field, but there is *not supported* to update the chart using its built-it functions, because that would cause problems with data synchronization between your app and the chart itself (it disturbs conception of using wrappers). It's recommended to use it in the way that is implemented in demo app.
 
+#### Using Highcharts `setOptions()` method
+
+If you would like to use `Highcharts.setOptions()` method to define some parameters which would be set globally on all charts, we recommend you to use it in the main file of your app, although there should be Highcharts package imported before.
+
+```js
+import Highcharts from 'highcharts';
+
+Highcharts.setOptions({
+  // options here
+})
+```
+
 ## Demo app
 
 If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, there is an example included in this repository, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter these two commands from repo directory level:

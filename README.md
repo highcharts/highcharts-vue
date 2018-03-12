@@ -30,7 +30,7 @@ Highcharts wrapper for Vue framework
 Install `highcharts-vue` package by:
 
 ```cli
-npm install https://github.com/blacklabel/hc-vue
+npm install highcharts-vue
 ```
 ### Using
 There are two ways of adding Highcharts-Vue wrapper to your project:

@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "highcharts": "^6.0.5",
-    "highcharts-vue": "git+https://github.com/blacklabel/hc-vue.git",
+    "highcharts-vue": "^1.0.0",
     "vue": "^2.5.11"
   },
   "browserslist": [

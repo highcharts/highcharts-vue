@@ -1,7 +1,7 @@
 {
   "name": "vue-app-demo",
   "description": "A Vue.js project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Daniel Studencki <daniel.studencki@gmail.com>",
   "license": "MIT",
   "private": true,
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "highcharts": "^6.0.5",
-    "highcharts-vue": "^1.0.0",
+    "highcharts-vue": "^1.0.1",
     "vue": "^2.5.11"
   },
   "browserslist": [

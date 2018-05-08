@@ -2,6 +2,7 @@ import Highcharts from 'highcharts'
 
 const HighchartsVueComponent = {
   template: '<div ref="chart"></div>',
+  render: createElement => createElement('div', { ref: 'chart' }),
   props: {
     constructorType: {
       type: String,

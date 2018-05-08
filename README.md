@@ -1,6 +1,6 @@
 # Highcharts-Vue
 
-Highcharts wrapper for Vue framework
+Official Highcharts wrapper for Vue framework
 
 ## Table of Contents
 

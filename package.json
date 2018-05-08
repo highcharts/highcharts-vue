@@ -13,6 +13,14 @@
     "lint": "eslint . --ext .js,.vue",
     "lint:fix": "eslint . --ext .js,.vue --fix"
   },
+  "homepage": "https://github.com/highcharts/highcharts-vue#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/highcharts/highcharts-vue"
+  },
+  "bugs": {
+    "url": "https://github.com/highcharts/highcharts-vue/issues"
+  },
   "keywords": [
     "highcharts",
     "wrapper",

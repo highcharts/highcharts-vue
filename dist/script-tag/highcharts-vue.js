@@ -99,6 +99,11 @@ function install(Vue, options) {
 
 var HighchartsVueComponent = {
   template: '<div ref="chart"></div>',
+  render: function render(createElement) {
+    return createElement('div', {
+      ref: 'chart'
+    });
+  },
   props: {
     constructorType: {
       type: String,

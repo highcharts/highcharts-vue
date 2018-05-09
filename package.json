@@ -28,7 +28,7 @@
     "component"
   ],
   "author": "Daniel Studencki <daniel.studencki@gmail.com>",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE",
   "peerDependencies": {
     "highcharts": ">=5.0.0",
     "vue": ">=1.0.0"

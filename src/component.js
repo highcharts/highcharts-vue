@@ -12,12 +12,16 @@ const HighchartsVueComponent = {
       type: Object,
       required: true
     },
-    callback: Function
+    callback: Function,
+    updateArgs: {
+      type: Array,
+      default: () => [true, true]
+    }
   },
   watch: {
     options: {
-      handler (newValue, oldValue) {
-        this.chart.update(newValue)
+      handler (newValue) {
+        this.chart.update(newValue, ...this.updateArgs)
       },
       deep: true
     }

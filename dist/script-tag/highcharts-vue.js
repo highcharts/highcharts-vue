@@ -96,6 +96,8 @@ function install(Vue, options) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_highcharts__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_highcharts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_highcharts__);
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 
 var HighchartsVueComponent = {
   template: '<div ref="chart"></div>',
@@ -113,12 +115,20 @@ var HighchartsVueComponent = {
       type: Object,
       required: true
     },
-    callback: Function
+    callback: Function,
+    updateArgs: {
+      type: Array,
+      default: function _default() {
+        return [true, true];
+      }
+    }
   },
   watch: {
     options: {
-      handler: function handler(newValue, oldValue) {
-        this.chart.update(newValue);
+      handler: function handler(newValue) {
+        var _chart;
+
+        (_chart = this.chart).update.apply(_chart, [newValue].concat(_toConsumableArray(this.updateArgs)));
       },
       deep: true
     }

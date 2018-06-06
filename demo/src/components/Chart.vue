@@ -1,7 +1,7 @@
 <template>
   <div class="chartElem">
     <div class="row">
-      <highcharts class="chart" :options="chartOptions"></highcharts>
+      <highcharts class="chart" :options="chartOptions" :updateArgs="updateArgs"></highcharts>
       <div>
         <h3>Flexibly change the value of each point:</h3>
         <h4>Points:</h4>
@@ -27,6 +27,15 @@
           <option>Scatter</option>
           <option>Column</option>
           <option>Area</option>
+        </select>
+      </div>
+      <div id="animationDuration">
+        <h3>Select update animation duration:</h3>
+        <select v-model="animationDuration" type="number">
+          <option>0</option>
+          <option>500</option>
+          <option>1000</option>
+          <option>2000</option>
         </select>
       </div>
       <div id="seriesColor">
@@ -59,6 +68,8 @@ export default {
       chartType: 'Spline',
       seriesColor: '#6fcd98',
       colorInputIsSupported: null,
+      animationDuration: 1000,
+      updateArgs: [true, true, {duration: 1000}],
       chartOptions: {
         chart: {
           type: 'spline'
@@ -90,6 +101,9 @@ export default {
     },
     seriesColor (newValue) {
       this.chartOptions.series[0].color = newValue.toLowerCase()
+    },
+    animationDuration (newValue) {
+      this.updateArgs[2].duration = Number(newValue)
     }
   }
 }

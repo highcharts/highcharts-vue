@@ -163,6 +163,7 @@ Here is the list of all allowed parameters which you can pass directly to your `
 | `:options` | Object | yes | Highcharts chart configuration object |
 | `:constructor-type` | String | no | Chart constructor type using to init specific chart. Allowed options: `'chart'`, `'stockChart'`, `'mapChart'`. First one is set for default. | 
 | `:callback` | Function | no | Function passed as a callback during chart init, and triggered when chart is loaded.
+| `:updateArgs` | Array | no | Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters: 
 
 ## Useful links
 

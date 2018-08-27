@@ -11,7 +11,8 @@
     "build:app": "cd demo && npm install",
     "app": "cd demo && npm run dev",
     "lint": "eslint . --ext .js,.vue",
-    "lint:fix": "eslint . --ext .js,.vue --fix"
+    "lint:fix": "eslint . --ext .js,.vue --fix",
+    "release": "standard-version"
   },
   "homepage": "https://github.com/highcharts/highcharts-vue#readme",
   "repository": {
@@ -41,6 +42,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.2.2",
     "standard": "^10.0.3",
+    "standard-version": "^4.4.0",
     "webpack": "^3.10.0"
   }
 }

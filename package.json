@@ -34,6 +34,11 @@
     "highcharts": ">=5.0.0",
     "vue": ">=1.0.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run build"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
@@ -41,6 +46,7 @@
     "eslint": "^4.17.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.2.2",
+    "husky": "^1.0.0-rc.13",
     "standard": "^10.0.3",
     "standard-version": "^4.4.0",
     "webpack": "^3.10.0"

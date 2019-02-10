@@ -35,7 +35,7 @@ const HighchartsVueComponent = {
         this.callback ? this.callback : null
       )
     } else {
-      (!this.options) ? console.warn('The "options" parameter was not passed.') : console.warn(`'${this.constructorType}' constructor-type is incorrect. Sometimes this error is casued by the fact, that the corresponding module wasn't imported.`)
+      (!this.options) ? console.warn('The "options" parameter was not passed.') : console.warn(`'${this.constructorType}' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported.`)
     }
   },
   beforeDestroy () {

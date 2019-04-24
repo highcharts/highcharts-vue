@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
   entry: {
@@ -8,7 +9,16 @@ module.exports = {
   output: {
     filename: '[name].js',
     library: 'HighchartsVue',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    path: path.resolve(__dirname, './dist')
+  },
+  externals: {
+    highcharts: {
+      root: 'Highcharts',
+      commonjs: 'highcharts',
+      commonjs2: 'highcharts',
+      amd: 'highcharts'
+    }
   },
   module: {
     rules: [

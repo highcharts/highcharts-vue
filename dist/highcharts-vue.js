@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("Highcharts"));
+		module.exports = factory(require("highcharts"));
 	else if(typeof define === 'function' && define.amd)
-		define(["Highcharts"], factory);
+		define(["highcharts"], factory);
 	else if(typeof exports === 'object')
-		exports["HighchartsVue"] = factory(require("Highcharts"));
+		exports["HighchartsVue"] = factory(require("highcharts"));
 	else
 		root["HighchartsVue"] = factory(root["Highcharts"]);
 })(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_2__) {

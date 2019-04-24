@@ -80,12 +80,16 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["default"] = install;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Chart", function() { return Chart; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(1);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Chart", function() { return __WEBPACK_IMPORTED_MODULE_0__component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_highcharts__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_highcharts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_highcharts__);
 
-function install(Vue, options) {
-  var tagName = options && options.tagName || 'highcharts';
-  Vue.component(tagName, __WEBPACK_IMPORTED_MODULE_0__component__["a" /* default */]);
+
+var Chart = Object(__WEBPACK_IMPORTED_MODULE_0__component__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1_highcharts___default.a);
+function install(Vue) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  Vue.component(options.tagName || 'highcharts', Object(__WEBPACK_IMPORTED_MODULE_0__component__["a" /* default */])(options.highcharts || __WEBPACK_IMPORTED_MODULE_1_highcharts___default.a));
 }
 
 
@@ -94,61 +98,65 @@ function install(Vue, options) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_highcharts__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_highcharts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_highcharts__);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+var generateVueComponent = function generateVueComponent(Highcharts) {
+  return {
+    template: '<div ref="chart"></div>',
+    render: function render(createElement) {
+      return createElement('div', {
+        ref: 'chart'
+      });
+    },
+    props: {
+      constructorType: {
+        type: String,
+        default: 'chart'
+      },
+      options: {
+        type: Object,
+        required: true
+      },
+      callback: Function,
+      updateArgs: {
+        type: Array,
+        default: function _default() {
+          return [true, true];
+        }
+      },
+      highcharts: {
+        type: Object
+      }
+    },
+    watch: {
+      options: {
+        handler: function handler(newValue) {
+          var _chart;
 
-var HighchartsVueComponent = {
-  template: '<div ref="chart"></div>',
-  render: function render(createElement) {
-    return createElement('div', {
-      ref: 'chart'
-    });
-  },
-  props: {
-    constructorType: {
-      type: String,
-      default: 'chart'
+          (_chart = this.chart).update.apply(_chart, [Object.assign({}, newValue)].concat(_toConsumableArray(this.updateArgs)));
+        },
+        deep: true
+      }
     },
-    options: {
-      type: Object,
-      required: true
+    mounted: function mounted() {
+      var HC = this.highcharts || Highcharts; // Check wheather the chart configuration object is passed, as well as the constructor is valid
+
+      if (this.options && HC[this.constructorType]) {
+        this.chart = HC[this.constructorType](this.$refs.chart, Object.assign({}, this.options), this.callback ? this.callback : null);
+      } else {
+        !this.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(this.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
+      }
     },
-    callback: Function,
-    updateArgs: {
-      type: Array,
-      default: function _default() {
-        return [true, true];
+    beforeDestroy: function beforeDestroy() {
+      // Destroy chart if exists
+      if (this.chart) {
+        this.chart.destroy();
       }
     }
-  },
-  watch: {
-    options: {
-      handler: function handler(newValue) {
-        var _chart;
-
-        (_chart = this.chart).update.apply(_chart, [newValue].concat(_toConsumableArray(this.updateArgs)));
-      },
-      deep: true
-    }
-  },
-  mounted: function mounted() {
-    // Check wheather the chart configuration object is passed, as well as the constructor is valid
-    if (this.options && __WEBPACK_IMPORTED_MODULE_0_highcharts___default.a[this.constructorType]) {
-      this.chart = __WEBPACK_IMPORTED_MODULE_0_highcharts___default.a[this.constructorType](this.$refs.chart, this.options, this.callback ? this.callback : null);
-    } else {
-      !this.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(this.constructorType, "' constructor-type is incorrect. Sometimes this error is casued by the fact, that the corresponding module wasn't imported."));
-    }
-  },
-  beforeDestroy: function beforeDestroy() {
-    // Destroy chart if exists
-    if (this.chart) {
-      this.chart.destroy();
-    }
-  }
+  };
 };
-/* harmony default export */ __webpack_exports__["a"] = (HighchartsVueComponent);
+
+/* harmony default export */ __webpack_exports__["a"] = (generateVueComponent);
 
 /***/ }),
 /* 2 */

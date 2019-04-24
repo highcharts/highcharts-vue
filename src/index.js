@@ -1,7 +1,12 @@
-import Chart from './component'
+import generateVueComponent from './component'
+import Highcharts from 'highcharts'
 
-export default function install (Vue, options) {
-  let tagName = (options && options.tagName) || 'highcharts'
-  Vue.component(tagName, Chart)
+const Chart = generateVueComponent(Highcharts)
+
+export default function install (Vue, options = {}) {
+  Vue.component(
+    options.tagName || 'highcharts',
+    generateVueComponent(options.highcharts || Highcharts)
+  )
 }
 export {Chart}

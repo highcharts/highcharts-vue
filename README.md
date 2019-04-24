@@ -144,6 +144,50 @@ Highcharts.setOptions({
 })
 ```
 
+ #### Using specific Highcharts instance
+
+Occasionally you'll want to create your charts basing on specific Highcharts version for some reason. Then you can set it up in two different ways, depending on your individual needs.
+
+The **first one** is by setting a Highcharts instance while registering a wrapper component as a global plugin, by passing it through the `options` of Vue's install function, as below:
+
+```js
+import Vue from 'vue'
+import Highcharts from 'highcharts'
+import HighchartsVue from 'highcharts-vue'
+
+Vue.use(HighchartsVue, {
+	highcharts: Highcharts
+})
+```
+
+After doing it, all charts will be generated basing on passed instance.
+
+A **second way** is to pass the Highcharts instance through the props of `highcharts` component. Then, as a result, only that chart will be generated basing on passed instance:
+
+```html
+<highcharts :options="chartOptions" :highcharts="hcInstance"></highcharts>
+```
+
+```js
+import Highcharts from 'highcharts'
+
+export default {
+	name: 'app',
+	data() {
+		return {
+			hcInstance: Highcharts,
+			chartOptions: {
+				series: [{
+					data: [1, 2, 3]
+				}]
+			}
+		}
+	}
+}
+```
+
+*Note that both ways of usage are **optional**, because wrapper automatically uses available Highcharts instance by default from peer dependency.*
+
 ## Demo app
 
 If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, there is an example included in this repository, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter these two commands from repo directory level:
@@ -163,7 +207,8 @@ Here is the list of all allowed parameters which you can pass directly to your `
 | `:options` | Object | yes | Highcharts chart configuration object |
 | `:constructor-type` | String | no | Chart constructor type using to init specific chart. Allowed options: `'chart'`, `'stockChart'`, `'mapChart'`. First one is set for default. | 
 | `:callback` | Function | no | Function passed as a callback during chart init, and triggered when chart is loaded.
-| `:updateArgs` | Array | no | Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters: 
+| `:updateArgs` | Array | no | Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters. |
+| `:highcharts` | Object | no | A specific Highcharts instance. It's useful when required to build charts using different Highcharts versions. |
 
 ## Useful links
 

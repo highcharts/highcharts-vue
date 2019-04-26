@@ -23,7 +23,7 @@ Official Highcharts wrapper for Vue framework
 ### Requirements
 
 - **Node.JS**, **NPM** installed globally in your OS
-- **Vue**, **Highcharts** libraries (updated) installed  in your project
+- **Vue**, **Highcharts** libraries (updated) installed in your project
 
 ### Installation
 
@@ -36,7 +36,7 @@ npm install highcharts-vue
 There are two ways of adding Highcharts-Vue wrapper to your project:
 
 #### Registering globally as a plugin
-That way is recommended when making the wrapper available from everywhere in your app. In your main app file should have Vue and Highcharts-Vue packages imported:
+The way described below is recommended when wanted to make a wrapper component available from everywhere in your app. In your main app file should have Vue and Highcharts-Vue packages imported:
 
 ```js
 import Vue from 'vue'
@@ -110,7 +110,7 @@ stockInit(Highcharts)
 <highcharts :constructor-type="'stockChart'" :options="chartOptions"></highcharts>
 ```
 #### Changing global component tag name
-If you would like to use global component tag name other than `<highcharts>` , you could achieve that by passing object with `tagName: [TAG_NAME]` pair as an option argument when registering the plugin, for example:
+If you would like to use global component tag name other than `<highcharts>`, you could achieve that by passing object with `tagName: [TAG_NAME]` pair as an option argument when registering the plugin, for example:
 ```js
 import Vue from 'vue'
 import HighchartsVue from 'highcharts-vue'
@@ -130,11 +130,11 @@ Then, `someFunction` will be called when chart is loaded.
 
 #### Chart object reference
 
-You can access the Chart object instance if necessary (e.g when need to get some data or use any of Chart.prototype functions) by calling specific Vue component instance `chart` field, but there is *not supported* to update the chart using its built-it functions, because that would cause problems with data synchronization between your app and the chart itself (it disturbs conception of using wrappers). It's recommended to use it in the way that is implemented in demo app.
+You can access the Chart object instance if necessary (e.g when need to get some data or use any of `Chart.prototype` functions), by calling specific Vue component instance `chart` field, but it is *not supported* to update the chart using its built-in functions, because that could cause a problems with data synchronization between your app and the chart itself (it disturbs conception of using wrappers). The most recommended way of implementing it, is to use it in the way presented in demo app.
 
 #### Using Highcharts `setOptions()` method
 
-If you would like to use `Highcharts.setOptions()` method to define some parameters which would be set globally on all charts, we recommend you to use it in the main file of your app, although there should be Highcharts package imported before.
+If you would like to use `Highcharts.setOptions()` method to define some parameters which would be set globally on all of charts, we recommend you to use it in the main file of your app, although there should be Highcharts package imported before.
 
 ```js
 import Highcharts from 'highcharts';
@@ -144,7 +144,7 @@ Highcharts.setOptions({
 })
 ```
 
- #### Using specific Highcharts instance
+ #### Using a specific Highcharts instance
 
 Occasionally you'll want to create your charts basing on specific Highcharts version for some reason. Then you can set it up in two different ways, depending on your individual needs.
 
@@ -190,7 +190,7 @@ export default {
 
 ## Demo app
 
-If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, there is an example included in this repository, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter these two commands from repo directory level:
+If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, this repository includes the demo example, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter these two commands from the repo directory level:
 
 ```cli
 npm run build:app
@@ -198,9 +198,9 @@ npm run app
 ```
 Server runs at `http://localhost:8080`
 
-## Component Parameters
+## Component Properties
 
-Here is the list of all allowed parameters which you can pass directly to your `<highcharts>` component instance, and Highcharts would be able to handle it.
+Here is the list of all allowed props allowed to pass directly to your `<highcharts>` component instance, which wrapper is able to handle.
 
 | Parameter | Type | Required | Description |
 | --------- | :----: | :--------: | ----------- |

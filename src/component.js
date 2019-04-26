@@ -1,3 +1,5 @@
+import { copyObject } from '../utils/tools'
+
 const generateVueComponent = function (Highcharts) {
   return {
     template: '<div ref="chart"></div>',
@@ -20,12 +22,16 @@ const generateVueComponent = function (Highcharts) {
       },
       highcharts: {
         type: Object
+      },
+      deepCopyOnUpdate: {
+        type: Boolean,
+        default: true
       }
     },
     watch: {
       options: {
         handler (newValue) {
-          this.chart.update(Object.assign({}, newValue), ...this.updateArgs)
+          this.chart.update(copyObject(newValue, this.deepCopyOnUpdate), ...this.updateArgs)
         },
         deep: true
       }

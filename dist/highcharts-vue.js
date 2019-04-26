@@ -7,7 +7,7 @@
 		exports["HighchartsVue"] = factory(require("highcharts"));
 	else
 		root["HighchartsVue"] = factory(root["Highcharts"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,19 +70,25 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["default"] = install;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Chart", function() { return Chart; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_highcharts__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_highcharts__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_highcharts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_highcharts__);
 
 
@@ -94,11 +100,20 @@ function install(Vue) {
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_tools__ = __webpack_require__(3);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+
 
 var generateVueComponent = function generateVueComponent(Highcharts) {
   return {
@@ -126,14 +141,18 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
       },
       highcharts: {
         type: Object
+      },
+      deepCopyOnUpdate: {
+        type: Boolean,
+        default: true
       }
     },
     watch: {
       options: {
         handler: function handler(newValue) {
-          var _chart;
+          var _this$chart;
 
-          (_chart = this.chart).update.apply(_chart, [Object.assign({}, newValue)].concat(_toConsumableArray(this.updateArgs)));
+          (_this$chart = this.chart).update.apply(_this$chart, [Object(__WEBPACK_IMPORTED_MODULE_0__utils_tools__["a" /* copyObject */])(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
         },
         deep: true
       }
@@ -159,10 +178,41 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
 /* harmony default export */ __webpack_exports__["a"] = (generateVueComponent);
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return copyObject; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_highcharts__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_highcharts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_highcharts__);
+
+
+function doCopy(copy, original, copyArray) {
+  // Callback function to iterate on array or object elements
+  function callback(value, key) {
+    // Copy the contents of objects
+    if (__WEBPACK_IMPORTED_MODULE_0_highcharts___default.a.isObject(value, !copyArray) && !__WEBPACK_IMPORTED_MODULE_0_highcharts___default.a.isClass(value) && !__WEBPACK_IMPORTED_MODULE_0_highcharts___default.a.isDOMElement(value)) {
+      copy[key] = doCopy(copy[key] || __WEBPACK_IMPORTED_MODULE_0_highcharts___default.a.isArray(value) ? [] : {}, value, copyArray);
+    } else {
+      // Primitives are copied over directly
+      copy[key] = original[key];
+    }
+  }
+
+  if (__WEBPACK_IMPORTED_MODULE_0_highcharts___default.a.isArray(original)) {
+    original.forEach(callback);
+  } else {
+    __WEBPACK_IMPORTED_MODULE_0_highcharts___default.a.objectEach(original, callback);
+  }
+
+  return copy;
+}
+
+var copyObject = function copyObject(obj, copyArray) {
+  return doCopy({}, obj, copyArray);
+};
+
+
 
 /***/ })
 /******/ ]);

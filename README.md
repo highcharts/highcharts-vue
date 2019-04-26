@@ -209,6 +209,7 @@ Here is the list of all allowed parameters which you can pass directly to your `
 | `:callback` | Function | no | Function passed as a callback during chart init, and triggered when chart is loaded.
 | `:updateArgs` | Array | no | Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters. |
 | `:highcharts` | Object | no | A specific Highcharts instance. It's useful when required to build charts using different Highcharts versions. |
+| `:deepCopyOnUpdate` | Boolean | no | Whether to make a deep copy of object passed to `Chart.update()` function. In order to avoid passing references of arrays, it's set to **true** by default. <br><br> ***NOTE:** That can cause a decrease of performance while processing a big amount of data, because copying source data is much expensive, and then it's recommended to disable that option by setting it to `false`.* |
 
 ## Useful links
 

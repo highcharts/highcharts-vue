@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "Highcharts wrapper Vue component",
   "main": "dist/highcharts-vue.min.js",
+  "typings": "types/highcharts-vue.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",

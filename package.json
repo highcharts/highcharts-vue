@@ -1,6 +1,6 @@
 {
   "name": "highcharts-vue",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Highcharts wrapper Vue component",
   "main": "dist/highcharts-vue.min.js",
   "typings": "types/highcharts-vue.d.ts",

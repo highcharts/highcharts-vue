@@ -1,3 +1,4 @@
 dist/*
 demo/js/*
+demo/dist/*
 demo/node_modules/*

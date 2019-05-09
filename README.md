@@ -109,6 +109,21 @@ stockInit(Highcharts)
 ```html
 <highcharts :constructor-type="'stockChart'" :options="chartOptions"></highcharts>
 ```
+#### Loading maps
+
+There are two ways of loading maps and using them with wrapper. You can install the [@highcharts/map-collection`](https://www.npmjs.com/package/@highcharts/map-collection) npm package with all maps included, and then import that maps which you would like to use in your project:
+
+```js
+import Highcharts from 'highcharts'
+import mapData from '@highcharts/map-collection/custom/world.geo.json'
+
+Highcharts.maps['myMapName'] = mapData
+```
+
+If you won't install a package with all maps, there is an option to choose necessary map from [Highmaps collection](https://code.highcharts.com/mapdata/) collection and copy a map data into a new file in your project. Then just import it wherever you want, and use it in the same way like above.
+
+*The [Demo app](#demo-app) included in this repostory shows the second approach.*
+
 #### Changing global component tag name
 If you would like to use global component tag name other than `<highcharts>`, you could achieve that by passing object with `tagName: [TAG_NAME]` pair as an option argument when registering the plugin, for example:
 ```js

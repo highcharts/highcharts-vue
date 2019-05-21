@@ -5,13 +5,30 @@
   "main": "dist/highcharts-vue.min.js",
   "typings": "types/highcharts-vue.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack",
     "build:app": "cd demo && npm install",
     "app": "cd demo && npm run dev",
     "lint": "eslint . --ext .js,.vue",
     "lint:fix": "eslint . --ext .js,.vue --fix",
     "release": "standard-version"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ]
   },
   "homepage": "https://github.com/highcharts/highcharts-vue#readme",
   "repository": {
@@ -41,13 +58,21 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.0-beta.0",
     "eslint": "^4.17.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.2.2",
+    "highcharts": "^7.1.1",
     "husky": "^1.0.0-rc.13",
+    "jest": "^24.8.0",
+    "jest-serializer-vue": "^2.0.2",
     "standard": "^10.0.3",
     "standard-version": "^4.4.0",
+    "vue": "^2.6.10",
+    "vue-jest": "^3.0.4",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^3.10.0"
   }
 }

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/highcharts/highcharts-vue/compare/v1.3.1...v1.3.2) (2019-05-21)
+
+
+### Bug Fixes
+
+* **husky:** Including actual build in pre-commit hook. ([962d706](https://github.com/highcharts/highcharts-vue/commit/962d706))
+* Infinite loop on init, when series.allAreas is set to true on map charts, closes [#80](https://github.com/highcharts/highcharts-vue/issues/80). ([9d4cf40](https://github.com/highcharts/highcharts-vue/commit/9d4cf40))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/highcharts/highcharts-vue/compare/v1.3.0...v1.3.1) (2019-05-09)
 

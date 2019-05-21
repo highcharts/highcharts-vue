@@ -43,7 +43,7 @@ const generateVueComponent = function (Highcharts) {
       if (this.options && HC[this.constructorType]) {
         this.chart = HC[this.constructorType](
           this.$refs.chart,
-          Object.assign({}, this.options),
+          copyObject(this.options, true), // Always pass the deep copy when generating a chart. #80
           this.callback ? this.callback : null
         )
       } else {

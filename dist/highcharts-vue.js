@@ -126,7 +126,7 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
     props: {
       constructorType: {
         type: String,
-        default: 'chart'
+        "default": 'chart'
       },
       options: {
         type: Object,
@@ -135,7 +135,7 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
       callback: Function,
       updateArgs: {
         type: Array,
-        default: function _default() {
+        "default": function _default() {
           return [true, true];
         }
       },
@@ -144,7 +144,7 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
       },
       deepCopyOnUpdate: {
         type: Boolean,
-        default: true
+        "default": true
       }
     },
     watch: {

@@ -3,6 +3,9 @@
     "plugin:vue/essential",
     "standard"
   ],
+  "env": {
+    "jest": true
+  },
   "rules": {
     "no-new": 0,
     "vue/html-indent": [

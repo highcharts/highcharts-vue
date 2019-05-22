@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.4"></a>
+## [1.3.4](https://github.com/highcharts/highcharts-vue/compare/v1.3.3...v1.3.4) (2019-05-22)
+
+
+### Bug Fixes
+
+* **tests:** Added pre-commit tests running. Files field added to package.json. ([aed1af4](https://github.com/highcharts/highcharts-vue/commit/aed1af4))
+
+
+
 <a name="1.3.3"></a>
 ## [1.3.3](https://github.com/highcharts/highcharts-vue/compare/v1.3.2...v1.3.3) (2019-05-22)
 

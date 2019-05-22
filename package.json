@@ -46,13 +46,19 @@
   ],
   "author": "Daniel Studencki <daniel.studencki@gmail.com>",
   "license": "SEE LICENSE IN LICENSE",
+  "files": [
+    "dist",
+    "src",
+    "types",
+    "utils"
+  ],
   "peerDependencies": {
     "highcharts": ">=5.0.0",
     "vue": ">=1.0.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run build && git add -A"
+      "pre-commit": "npm run lint && npm run test && npm run build && git add -A"
     }
   },
   "devDependencies": {

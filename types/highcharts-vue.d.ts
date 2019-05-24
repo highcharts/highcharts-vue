@@ -1,4 +1,4 @@
-import _Vue, { VNode, PropOptions, WatchOptionsWithHandler, WatchHandler } from "vue";
+import _Vue, { VNode, PropOptions, WatchOptionsWithHandler, WatchHandler, CreateElement } from "vue";
 import Highcharts from "highcharts"
 
 export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject]
@@ -36,7 +36,7 @@ export class Chart extends _Vue {
     watch: ChartWatchObject;
     beforeDestroy: () => void;
     mounted: () => void;
-    render: (createElement) => VNode;
+    render: (createElement: CreateElement) => VNode;
 }
 
 export default function install(vue: typeof _Vue, options?: ChartOptions): void;

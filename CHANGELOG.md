@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.5"></a>
+## [1.3.5](https://github.com/highcharts/highcharts-vue/compare/v1.3.4...v1.3.5) (2019-05-29)
+
+
+### Bug Fixes
+
+* **typescript:** Fixed TS1192 error, imported all from Highcharts package. Closes [#85](https://github.com/highcharts/highcharts-vue/issues/85) ([56defb6](https://github.com/highcharts/highcharts-vue/commit/56defb6))
+* Fixed TypeScript definitions. ([e24dcce](https://github.com/highcharts/highcharts-vue/commit/e24dcce))
+
+
+
 <a name="1.3.4"></a>
 ## [1.3.4](https://github.com/highcharts/highcharts-vue/compare/v1.3.3...v1.3.4) (2019-05-22)
 

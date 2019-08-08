@@ -132,7 +132,7 @@ If you would like to use global component tag name other than `<highcharts>`, yo
 import Vue from 'vue'
 import HighchartsVue from 'highcharts-vue'
 
-Vue.use(HighchartsVue, {tagName: 'charts']})
+Vue.use(HighchartsVue, {tagName: 'charts'})
 ``` 
 It allows you to use:
 ```html

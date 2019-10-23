@@ -31,7 +31,9 @@ const generateVueComponent = function (Highcharts) {
     watch: {
       options: {
         handler (newValue) {
-          this.chart.update(copyObject(newValue, this.deepCopyOnUpdate), ...this.updateArgs)
+          if (this.chart) {
+            this.chart.update(copyObject(newValue, this.deepCopyOnUpdate), ...this.updateArgs)
+          }
         },
         deep: true
       }

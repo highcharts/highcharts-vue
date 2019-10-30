@@ -14,7 +14,7 @@ Official Highcharts wrapper for Vue framework
 	4. [Loading maps](#loading-maps)
 	5. [Changing global component tag name](#changing-global-component-tag-name)
 	6. [Chart callback parameter](#chart-callback-parameter)
-  7. [Chart object reference](#chart-object-reference)
+ 	7. [Chart object reference](#chart-object-reference)
 	8. [Using a specific Highcharts instance](#using-a-specific-highcharts-instance)
 3. [Demo app](#demo-app)
 4. [Component Parameters](#component-parameters)

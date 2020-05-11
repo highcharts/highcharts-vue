@@ -82,7 +82,7 @@ describe.only('highcharts-vue.use test', () => {
     const { default: HighchartsVue } = imported
     expect(HighchartsVue).toBeTruthy()
     expect(HighchartsVue.use).toBeTruthy()
-    expect(typeof(HighchartsVue.use)).toBe('function')
+    expect(typeof (HighchartsVue.use)).toBe('function')
     const resp = await HighchartsVue.use('stockChart')
     expect(resp.featureAdded).toBe('stockChart')
   })

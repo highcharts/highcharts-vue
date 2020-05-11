@@ -75,3 +75,21 @@ describe('highcharts-vue tests', () => {
     expect(Highcharts.charts[0]).not.toBeTruthy()
   })
 })
+
+describe.only('highcharts-vue.use test', () => {
+  test('HighchartsVue.use (supported feature)', async () => {
+    const imported = await import('../src/index')
+    const { default: HighchartsVue } = imported
+    expect(HighchartsVue).toBeTruthy()
+    expect(HighchartsVue.use).toBeTruthy()
+    expect(typeof(HighchartsVue.use)).toBe('function')
+    const resp = await HighchartsVue.use('stockChart')
+    expect(resp.featureAdded).toBe('stockChart')
+  })
+  test('HighchartsVue.use (unsupported feature)', async () => {
+    const imported = await import('../src/index')
+    const { default: HighchartsVue } = imported
+    const resp = await HighchartsVue.use('unsupportedFeature')
+    expect(resp).toBe(undefined)
+  })
+})

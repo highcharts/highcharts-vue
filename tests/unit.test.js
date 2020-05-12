@@ -77,19 +77,33 @@ describe('highcharts-vue tests', () => {
 })
 
 describe.only('highcharts-vue.use test', () => {
-  test('HighchartsVue.use (supported feature)', async () => {
-    const imported = await import('../src/index')
-    const { default: HighchartsVue } = imported
-    expect(HighchartsVue).toBeTruthy()
-    expect(HighchartsVue.use).toBeTruthy()
-    expect(typeof (HighchartsVue.use)).toBe('function')
-    const resp = await HighchartsVue.use('stockChart')
+  const { default: HighchartsVue } = require('../src/index')
+  test('HighchartsVue.use (supported feature: exporting)', () => {
+    const resp = HighchartsVue.use('exporting')
+    expect(resp.featureAdded).toBe('exporting')
+  })
+  test('HighchartsVue.use (supported feature: mapChart, mapName not provided)', () => {
+    const resp = HighchartsVue.use('mapChart', {})
+    expect(resp.featureAdded).toBe('mapChart')
+    expect(JSON.stringify(resp.maps)).toBe('{}')
+  })
+  test('HighchartsVue.use (supported feature: mapChart, mapName provided)', () => {
+    const opts = {
+      mapName: 'myMap',
+      mapData: { someData: 123 }
+    }
+    const resp = HighchartsVue.use('mapChart', opts)
+    expect(resp.featureAdded).toBe('mapChart')
+    expect(resp.maps).toBeTruthy()
+    expect(resp.maps[opts.mapName]).toBeTruthy()
+    expect(resp.maps[opts.mapName]).toBe(opts.mapData)
+  })
+  test('HighchartsVue.use (supported feature: stockChart)', () => {
+    const resp = HighchartsVue.use('stockChart')
     expect(resp.featureAdded).toBe('stockChart')
   })
   test('HighchartsVue.use (unsupported feature)', async () => {
-    const imported = await import('../src/index')
-    const { default: HighchartsVue } = imported
-    const resp = await HighchartsVue.use('unsupportedFeature')
+    const resp = HighchartsVue.use('unsupportedFeature')
     expect(resp).toBe(undefined)
   })
 })

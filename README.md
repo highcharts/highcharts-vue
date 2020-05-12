@@ -94,19 +94,16 @@ new Vue({
 To use any of Highcharts modules, you're obligated to import  that module to your file, as well as Highcharts package itself and add that module by passing Highcharts to it, for example:
 
 ```js
-import Highcharts from 'highcharts'
-import exportingInit from 'highcharts/modules/exporting'
-
-exportingInit(Highcharts)
+import HighchartsVue from 'highcharts-vue'
+HighchartsVue.use('exporting')
 ```
 #### Implementing stockChart and mapChart
 
 Highcharts-Vue wrapper uses `chart` constructor by default, so if you need to implement `stockChart` or `mapChart`,  just add `stock` or `map` module as described above and use `:constructor-type` parameter in your html component element:
 ```js
-import Highcharts from 'highcharts'
-import stockInit from 'highcharts/modules/stock'
-
-stockInit(Highcharts)
+import HighchartsVue from 'highcharts-vue'
+HighchartsVue.use('stockChart')
+HighchartsVue.use('mapChart')
 ```
 ```html
 <highcharts :constructor-type="'stockChart'" :options="chartOptions"></highcharts>

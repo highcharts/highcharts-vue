@@ -4,8 +4,21 @@ import Highcharts from 'highcharts'
 const Chart = generateVueComponent(Highcharts)
 
 const Features = Object.freeze({
-  async stockChart () {
-    const { default: stockInit } = await import('highcharts/modules/stock')
+  exporting () {
+    const { default: exportingInit } = require('highcharts/modules/exporting')
+    exportingInit(Highcharts)
+    return { featureAdded: 'exporting' }
+  },
+  mapChart ({ mapName, mapData }) {
+    const { default: mapInit } = require('highcharts/modules/map')
+    mapInit(Highcharts)
+    if (mapName && mapData) {
+      Highcharts.maps[mapName] = mapData
+    }
+    return { featureAdded: 'mapChart', maps: Highcharts.maps }
+  },
+  stockChart () {
+    const { default: stockInit } = require('highcharts/modules/stock')
     stockInit(Highcharts)
     return { featureAdded: 'stockChart' }
   }

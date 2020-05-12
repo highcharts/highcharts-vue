@@ -103,7 +103,11 @@ Highcharts-Vue wrapper uses `chart` constructor by default, so if you need to im
 ```js
 import HighchartsVue from 'highcharts-vue'
 HighchartsVue.use('stockChart')
-HighchartsVue.use('mapChart')
+HighchartsVue.use('mapChart') // w/o data set
+HighchartsVue.use('mapChart', { // w/ data set
+	mapName: 'myMap', // Will set Highcharts.maps['myMap'] to `mapData`
+	mapData: /* {...} */ // Your data (see demo for format)
+})
 ```
 ```html
 <highcharts :constructor-type="'stockChart'" :options="chartOptions"></highcharts>

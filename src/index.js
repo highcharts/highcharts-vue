@@ -32,10 +32,13 @@ export default function install (Vue, options = {}) {
   )
 }
 
-install.use = function (feature, options = {}) {
-  if (typeof Highcharts === 'object' && SupportedFeatures.includes(feature)) {
-    return Features[feature](options)
+Object.defineProperty(install, 'use', {
+  writable: false,
+  value (feature, options = {}) {
+    if (typeof Highcharts === 'object' && SupportedFeatures.includes(feature)) {
+      return Features[feature](options)
+    }
   }
-}
+})
 
 export { Chart }

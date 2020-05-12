@@ -138,15 +138,16 @@ function install(Vue) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   Vue.component(options.tagName || 'highcharts', Object(__WEBPACK_IMPORTED_MODULE_0__component__["a" /* default */])(options.highcharts || __WEBPACK_IMPORTED_MODULE_1_highcharts___default.a));
 }
+Object.defineProperty(install, 'use', {
+  writable: false,
+  value: function value(feature) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-install.use = function (feature) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-  if (_typeof(__WEBPACK_IMPORTED_MODULE_1_highcharts___default.a) === 'object' && SupportedFeatures.includes(feature)) {
-    return Features[feature](options);
+    if (_typeof(__WEBPACK_IMPORTED_MODULE_1_highcharts___default.a) === 'object' && SupportedFeatures.includes(feature)) {
+      return Features[feature](options);
+    }
   }
-};
-
+});
 
 
 /***/ }),

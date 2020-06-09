@@ -10,15 +10,16 @@ Official Highcharts wrapper for Vue framework
 2. [Using](#using)
 	1. [Registering globally as a plugin](#registering-globally-as-a-plugin)
 	2. [Registering locally in your component](#registering-locally-in-your-component)
-	3. [Implementing stockChart and mapChart](#implementing-stockchart-and-mapchart)
+	3. [Implementing stockChart, mapChart and ganttChart](#implementing-stockchart-mapchart-and-ganttchart)
 	4. [Loading maps](#loading-maps)
 	5. [Changing global component tag name](#changing-global-component-tag-name)
 	6. [Chart callback parameter](#chart-callback-parameter)
  	7. [Chart object reference](#chart-object-reference)
 	8. [Using a specific Highcharts instance](#using-a-specific-highcharts-instance)
 3. [Demo app](#demo-app)
-4. [Component Parameters](#component-parameters)
-5. [Useful links](#useful-links)
+4. [Online demos](#online-demos)
+5. [Component Properties](#component-properties)
+6. [Useful links](#useful-links)
 
 ## Getting started
 
@@ -99,9 +100,12 @@ import exportingInit from 'highcharts/modules/exporting'
 
 exportingInit(Highcharts)
 ```
-#### Implementing stockChart and mapChart
 
-Highcharts-Vue wrapper uses `chart` constructor by default, so if you need to implement `stockChart` or `mapChart`,  just add `stock` or `map` module as described above and use `:constructor-type` parameter in your html component element:
+Demo: https://codesandbox.io/s/highcharts-vue-demo-fv7m6
+
+#### Implementing stockChart, mapChart and ganttChart
+
+Highcharts-Vue wrapper uses `chart` constructor by default, so if you need to implement `stockChart`, `mapChart` or `ganttChart`,  just add `stock`, `map` or `gantt` module as described above and use `:constructor-type` parameter in your html component element:
 ```js
 import Highcharts from 'highcharts'
 import stockInit from 'highcharts/modules/stock'
@@ -111,6 +115,11 @@ stockInit(Highcharts)
 ```html
 <highcharts :constructor-type="'stockChart'" :options="chartOptions"></highcharts>
 ```
+
+Stock demo: https://codesandbox.io/s/highcharts-vue-demo-qkf43 <br>
+Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z <br>
+Gantt demo: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
+
 #### Loading maps
 
 There are two ways of loading maps and using them with wrapper. You can install the [@highcharts/map-collection`](https://www.npmjs.com/package/@highcharts/map-collection) npm package with all maps included, and then import that maps which you would like to use in your project:
@@ -125,6 +134,8 @@ Highcharts.maps['myMapName'] = mapData
 If you won't install a package with all maps, there is an option to choose necessary map from [Highmaps collection](https://code.highcharts.com/mapdata/) collection and copy a map data into a new file in your project. Then just import it wherever you want, and use it in the same way like above.
 
 *The [Demo app](#demo-app) included in this repostory shows the second approach.*
+
+Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z
 
 #### Changing global component tag name
 If you would like to use global component tag name other than `<highcharts>`, you could achieve that by passing object with `tagName: [TAG_NAME]` pair as an option argument when registering the plugin, for example:
@@ -214,6 +225,17 @@ npm run build:app
 npm run app
 ```
 Server runs at `http://localhost:8080`
+
+## Online demos
+
+- Basic line: https://codesandbox.io/s/highcharts-vue-demo-ttner
+- Stock: https://codesandbox.io/s/highcharts-vue-demo-qkf43
+- Map: https://codesandbox.io/s/highcharts-vue-demo-cop9z
+- Gantt: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
+- Store: https://codesandbox.io/s/highcharts-vue-demo-zrok6
+- NuxtJS (with SSR): https://codesandbox.io/s/z8jovxx04
+- Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m 
+- Synchronized charts: https://codesandbox.io/s/vue-template-jyp7o
 
 ## Component Properties
 

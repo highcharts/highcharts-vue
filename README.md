@@ -26,7 +26,8 @@ Official Highcharts wrapper for Vue framework
 ### Requirements
 
 - **Node.JS**, **NPM** installed globally in your OS
-- **Vue**, **Highcharts** libraries (updated) installed in your project
+- **Vue**, **Highcharts** libraries (updated) installed in your project.
+Highcharts package version should be at least `v5.0.11`, but it is always better to keep it updated.
 
 ### Installation
 

@@ -75,7 +75,7 @@
     "jest": "^24.8.0",
     "jest-serializer-vue": "^2.0.2",
     "standard": "^10.0.3",
-    "standard-version": "^4.4.0",
+    "standard-version": "^8.0.1",
     "vue": "^2.6.10",
     "vue-jest": "^3.0.4",
     "vue-template-compiler": "^2.6.10",

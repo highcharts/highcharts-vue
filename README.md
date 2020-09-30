@@ -127,7 +127,10 @@ There are two ways of loading maps and using them with wrapper. You can install 
 
 ```js
 import Highcharts from 'highcharts'
+import HighchartsMapModule from 'highcharts/modules/map'
 import mapData from '@highcharts/map-collection/custom/world.geo.json'
+
+HighchartsMapModule(Highcharts)
 
 Highcharts.maps['myMapName'] = mapData
 ```

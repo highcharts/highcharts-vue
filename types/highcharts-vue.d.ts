@@ -31,6 +31,7 @@ export interface ChartWatchObject {
 }
 
 export class Chart extends _Vue {
+    chart: Highcharts.Chart;
     props: ChartPropsObject;
     template: string;
     watch: ChartWatchObject;

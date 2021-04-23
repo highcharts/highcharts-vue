@@ -2,3 +2,5 @@ dist/*
 demo/js/*
 demo/dist/*
 demo/node_modules/*
+demo
+src/component.js

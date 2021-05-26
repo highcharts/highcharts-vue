@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("highcharts"));
+		module.exports = factory(require("highcharts"), require("vue"));
 	else if(typeof define === 'function' && define.amd)
-		define(["highcharts"], factory);
+		define(["highcharts", "vue"], factory);
 	else if(typeof exports === 'object')
-		exports["HighchartsVue"] = factory(require("highcharts"));
+		exports["HighchartsVue"] = factory(require("highcharts"), require("vue"));
 	else
-		root["HighchartsVue"] = factory(root["Highcharts"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__) {
+		root["HighchartsVue"] = factory(root["Highcharts"], root["Vue"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,6 +102,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -109,8 +115,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
 __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
-__webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ install; });
 __webpack_require__.d(__webpack_exports__, "Chart", function() { return /* binding */ Chart; });
+__webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ install; });
 
 // EXTERNAL MODULE: external {"root":"Highcharts","commonjs":"highcharts","commonjs2":"highcharts","amd":"highcharts"}
 var external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_ = __webpack_require__(0);
@@ -145,6 +151,10 @@ var copyObject = function copyObject(obj, copyArray) {
 };
 
 
+// EXTERNAL MODULE: external {"root":"Vue","commonjs":"vue","commonjs2":"vue","amd":"vue"}
+var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_ = __webpack_require__(1);
+var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_default = /*#__PURE__*/__webpack_require__.n(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_);
+
 // CONCATENATED MODULE: ./src/component.js
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -158,16 +168,42 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var component_generateVueComponent = function generateVueComponent(Highcharts) {
-  return {
-    template: '<div ref="chart"></div>',
+
+
+function destroyChart() {
+  if (this.chart) {
+    this.chart.destroy();
+  }
+}
+
+var component_generateVueComponent = function generateVueComponent(Highcharts, VueVersion) {
+  var VUE_MAJOR = VueVersion.split('.')[0];
+  var VERSION_DEPENDENT_PROPS = VUE_MAJOR < 3 ? {
+    // Fallback options for Vue v2 to keep backward compatibility.
     render: function render(createElement) {
       return createElement('div', {
         ref: 'chart'
       });
     },
+    beforeDestroy: destroyChart // The new Vue's 3 syntax.
+
+  } : {
+    render: function render() {
+      return Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["h"])('div', {
+        ref: 'chart'
+      });
+    },
+    beforeUnmount: destroyChart
+  };
+  return _objectSpread({
+    template: '<div ref="chart"></div>',
     props: {
       constructorType: {
         type: String,
@@ -203,7 +239,7 @@ var component_generateVueComponent = function generateVueComponent(Highcharts) {
       }
     },
     mounted: function mounted() {
-      var HC = this.highcharts || Highcharts; // Check wheather the chart configuration object is passed, as well as the constructor is valid
+      var HC = this.highcharts || Highcharts; // Check whether the chart configuration object is passed, as well as the constructor is valid.
 
       if (this.options && HC[this.constructorType]) {
         this.chart = HC[this.constructorType](this.$refs.chart, copyObject(this.options, true), // Always pass the deep copy when generating a chart. #80
@@ -211,26 +247,20 @@ var component_generateVueComponent = function generateVueComponent(Highcharts) {
       } else {
         !this.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(this.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
       }
-    },
-    beforeDestroy: function beforeDestroy() {
-      // Destroy chart if exists
-      if (this.chart) {
-        this.chart.destroy();
-      }
     }
-  };
+  }, VERSION_DEPENDENT_PROPS);
 };
 
 /* harmony default export */ var component = (component_generateVueComponent);
 // CONCATENATED MODULE: ./src/index.js
 
 
-var Chart = component(external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default.a);
+
+var Chart = component(external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default.a, external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["version"] || external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_default.a.version);
 function install(Vue) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  Vue.component(options.tagName || 'highcharts', component(options.highcharts || external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default.a));
+  Vue.component(options.tagName || 'highcharts', component(options.highcharts || external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default.a, Vue.version));
 }
-
 
 /***/ })
 /******/ ]);

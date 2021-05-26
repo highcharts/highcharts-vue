@@ -1,11 +1,29 @@
 import { copyObject } from '../utils/tools'
+import { h } from 'vue'
 
-const generateVueComponent = function (Highcharts) {
+function destroyChart () {
+  if (this.chart) {
+    this.chart.destroy()
+  }
+}
+
+const generateVueComponent = function (Highcharts, VueVersion) {
+  const VUE_MAJOR = VueVersion.split('.')[0]
+  const VERSION_DEPENDENT_PROPS = VUE_MAJOR < 3
+    ? {
+    // Fallback options for Vue v2 to keep backward compatibility.
+      render: (createElement) => createElement('div', {
+        ref: 'chart'
+      }),
+      beforeDestroy: destroyChart
+    // The new Vue's 3 syntax.
+    } : {
+      render () { return h('div', { ref: 'chart' }) },
+      beforeUnmount: destroyChart
+    }
+
   return {
     template: '<div ref="chart"></div>',
-    render: createElement => createElement('div', {
-      ref: 'chart'
-    }),
     props: {
       constructorType: {
         type: String,
@@ -39,7 +57,7 @@ const generateVueComponent = function (Highcharts) {
     mounted () {
       let HC = this.highcharts || Highcharts
 
-      // Check wheather the chart configuration object is passed, as well as the constructor is valid
+      // Check whether the chart configuration object is passed, as well as the constructor is valid.
       if (this.options && HC[this.constructorType]) {
         this.chart = HC[this.constructorType](
           this.$refs.chart,
@@ -50,12 +68,8 @@ const generateVueComponent = function (Highcharts) {
         (!this.options) ? console.warn('The "options" parameter was not passed.') : console.warn(`'${this.constructorType}' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported.`)
       }
     },
-    beforeDestroy () {
-      // Destroy chart if exists
-      if (this.chart) {
-        this.chart.destroy()
-      }
-    }
+    ...VERSION_DEPENDENT_PROPS
   }
 }
+
 export default generateVueComponent

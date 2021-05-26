@@ -7,8 +7,10 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "build:app": "cd demo-v2 && npm install",
-    "app": "cd demo-v2 && npm run dev",
+    "build:app-v2": "cd demo-v2 && npx yarn",
+    "app-v2": "cd demo-v2 && npx yarn dev",
+    "build:app-v3": "cd demo-v3 && npx yarn",
+    "app-v3": "cd demo-v3 && npx yarn serve",
     "lint": "eslint . --ext .js,.vue",
     "lint:fix": "eslint . --ext .js,.vue --fix",
     "release": "standard-version"

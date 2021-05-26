@@ -1,8 +1,6 @@
 import { mount } from '@vue/test-utils'
-import generateVueComponent from '../src/component'
+import { Chart } from '../src/'
 import Highcharts from 'highcharts'
-
-const Chart = generateVueComponent(Highcharts)
 
 const propsData = {
   options: {
@@ -21,7 +19,7 @@ describe('highcharts-vue tests', () => {
   const chart = Highcharts.charts[0]
 
   test('Wrapper should be a Vue instance.', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.vm).toBeTruthy()
   })
 
   test('Only one chart should be created.', () => {
@@ -40,8 +38,8 @@ describe('highcharts-vue tests', () => {
     expect(chart.wasCallbackInvoked).toBeTruthy()
   })
 
-  test('Chart data should be copied.', () => {
-    wrapper.setProps({
+  test('Chart data should be copied.', async () => {
+    await wrapper.setProps({
       options: {
         series: [{
           name: 'Series',
@@ -55,8 +53,8 @@ describe('highcharts-vue tests', () => {
     ).not.toBeTruthy()
   })
 
-  test('Chart data should not be copied.', () => {
-    wrapper.setProps({
+  test('Chart data should not be copied.', async () => {
+    await wrapper.setProps({
       deepCopyOnUpdate: false,
       options: {
         series: [{

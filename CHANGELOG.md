@@ -1,6 +1,20 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.4.0](https://github.com/highcharts/highcharts-vue/compare/v1.3.5...v1.4.0) (2021-05-26)
+
+
+### Features
+
+* **demo-v3:** Added demo-v3 scripts. ([f969c0a](https://github.com/highcharts/highcharts-vue/commit/f969c0a020bdd964f8fca75ed309ba4aabf6e979))
+* **docs:** Updated the docs. ([d51b1f8](https://github.com/highcharts/highcharts-vue/commit/d51b1f814b40d3f7cbe4799699e37f1316c700ba))
+* **vue:** Added support for Vue v3 apps. ([268aef1](https://github.com/highcharts/highcharts-vue/commit/268aef1ce1b41a642540ebfa4aa0c8fb58351ef8))
+
+
+### Bug Fixes
+
+* **tests:** Fixed tests, and get rid of Jest deprecation warnings. ([886187a](https://github.com/highcharts/highcharts-vue/commit/886187a335df84e40f1f5bba5dc9ba2d37e32994))
 
 <a name="1.3.5"></a>
 ## [1.3.5](https://github.com/highcharts/highcharts-vue/compare/v1.3.4...v1.3.5) (2019-05-29)

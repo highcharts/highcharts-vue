@@ -1,6 +1,7 @@
 # Highcharts-Vue
 
 Official Highcharts wrapper for Vue framework
+**This package now supports also the Vue v3** :tada:
 
 ## Table of Contents
 
@@ -220,15 +221,22 @@ export default {
 
 *Note that both ways of usage are **optional**, because wrapper automatically uses available Highcharts instance by default from peer dependency.*
 
-## Demo app
+## Demo apps
 
-If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, this repository includes the demo example, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter these two commands from the repo directory level:
+If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, this repository includes the demo example, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter below commands from the repository root level:
 
+To run the demo based on Vue v2:
 ```cli
-npm run build:app
-npm run app
+npm run build:app-v2
+npm run app-v2
 ```
-Server runs at `http://localhost:8080`
+or Vue 3:
+```cli
+npm run build:app-v3
+npm run app-v3
+```
+
+Server always runs at `http://localhost:8080`, unless it's taken by another process. Then you need to manually copy & visit the address displayed in terminal.
 
 ## Online demos
 
@@ -243,7 +251,7 @@ Server runs at `http://localhost:8080`
 
 ## Component Properties
 
-Here is the list of all allowed props allowed to pass directly to your `<highcharts>` component instance, which wrapper is able to handle.
+Here is the list of all available props allowed to pass directly to your `<highcharts>` component instance, which wrapper is able to handle.
 
 | Parameter | Type | Required | Description |
 | --------- | :----: | :--------: | ----------- |

@@ -1,7 +1,8 @@
-const webpack = require('webpack')
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
+  mode: 'production',
   entry: {
     'highcharts-vue': './src/index.js',
     'highcharts-vue.min': './src/index.js'
@@ -18,6 +19,12 @@ module.exports = {
       commonjs: 'highcharts',
       commonjs2: 'highcharts',
       amd: 'highcharts'
+    },
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
     }
   },
   module: {
@@ -29,10 +36,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.min\.js$/,
-      minimize: true
-    })
-  ]
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.min\.js$/
+      })
+    ]
+  }
 }

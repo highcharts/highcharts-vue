@@ -218,8 +218,25 @@ export default {
 	}
 }
 ```
-
 *Note that both ways of usage are **optional**, because wrapper automatically uses available Highcharts instance by default from peer dependency.*
+#### Registering as global component in a TypeScript project
+
+_plugins/global-components.ts_
+```typescript
+import type { App } from 'vue';
+import HighchartsVue from 'highcharts-vue';
+
+export default function registerGlobalComponents(app: App): void {
+	app.component('chart', { // set your custom tag name here :: <chart>
+		HighchartsVue,
+	});
+}
+```
+_main.ts_
+```typescript
+import registerGlobalComponents from './plugins/global-components';
+```
+*This will prevent lint errors when `vue-tsc --noEmit` is run and an unregistered <highcharts> tag is detected in a template*
 
 ## Demo apps
 

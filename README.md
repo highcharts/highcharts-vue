@@ -17,7 +17,7 @@ Official Highcharts wrapper for Vue framework
 	6. [Chart callback parameter](#chart-callback-parameter)
  	7. [Chart object reference](#chart-object-reference)
 	8. [Using a specific Highcharts instance](#using-a-specific-highcharts-instance)
-3. [Demo app](#demo-app)
+3. [Demo apps](#demo-apps)
 4. [Online demos](#online-demos)
 5. [Component Properties](#component-properties)
 6. [Useful links](#useful-links)
@@ -138,7 +138,7 @@ Highcharts.maps['myMapName'] = mapData
 
 If you won't install a package with all maps, there is an option to choose necessary map from [Highmaps collection](https://code.highcharts.com/mapdata/) collection and copy a map data into a new file in your project. Then just import it wherever you want, and use it in the same way like above.
 
-*The [Demo app](#demo-app) included in this repostory shows the second approach.*
+*The [Demo apps](#demo-apps) included in this repostory show the second approach.*
 
 Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z
 
@@ -163,7 +163,7 @@ Then, `someFunction` will be called when chart is loaded.
 
 #### Chart object reference
 
-You can access the Chart object instance if necessary (e.g when need to get some data or use any of `Chart.prototype` functions), by calling specific Vue component instance `chart` field, but it is *not supported* to update the chart using its built-in functions, because that could cause a problems with data synchronization between your app and the chart itself (it disturbs conception of using wrappers). The most recommended way of implementing it, is to use it in the way presented in demo app.
+You can access the Chart object instance if necessary (e.g when need to get some data or use any of `Chart.prototype` functions), by calling specific Vue component instance `chart` field, but it is *not supported* to update the chart using its built-in functions, because that could cause a problems with data synchronization between your app and the chart itself (it disturbs conception of using wrappers). The most recommended way of implementing it, is to use it in the way presented in demo apps.
 
 #### Using Highcharts `setOptions()` method
 
@@ -223,7 +223,7 @@ export default {
 
 ## Demo apps
 
-If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, this repository includes the demo example, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter below commands from the repository root level:
+If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, this repository include the demo examples, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter below commands from the repository root level:
 
 To run the demo based on Vue v2:
 ```cli

@@ -15,11 +15,28 @@ const generateVueComponent = function (Highcharts, VueVersion) {
       render: (createElement) => createElement('div', {
         ref: 'chart'
       }),
-      beforeDestroy: destroyChart
+      beforeDestroy: destroyChart,
+      watch: {
+        options: {
+          handler (newValue) {
+            this.chart.update(copyObject(newValue, this.deepCopyOnUpdate), ...this.updateArgs)
+          },
+          deep: true
+        }
+      },
     // The new Vue's 3 syntax.
     } : {
       render () { return h('div', { ref: 'chart' }) },
-      beforeUnmount: destroyChart
+      beforeUnmount: destroyChart,
+      watch: {
+        options: {
+          handler (newValue) {
+            this.chart.update(copyObject(newValue, this.deepCopyOnUpdate), ...this.updateArgs)
+          },
+          deep: true,
+          flush: "post"
+        }
+      },
     }
 
   return {
@@ -44,14 +61,6 @@ const generateVueComponent = function (Highcharts, VueVersion) {
       deepCopyOnUpdate: {
         type: Boolean,
         default: true
-      }
-    },
-    watch: {
-      options: {
-        handler (newValue) {
-          this.chart.update(copyObject(newValue, this.deepCopyOnUpdate), ...this.updateArgs)
-        },
-        deep: true
       }
     },
     mounted () {

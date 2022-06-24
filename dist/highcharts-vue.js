@@ -156,6 +156,12 @@ var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_ = __webpack_require__(
 var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_default = /*#__PURE__*/__webpack_require__.n(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_);
 
 // CONCATENATED MODULE: ./src/component.js
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -167,12 +173,6 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -192,7 +192,17 @@ var component_generateVueComponent = function generateVueComponent(Highcharts, V
         ref: 'chart'
       });
     },
-    beforeDestroy: destroyChart // The new Vue's 3 syntax.
+    beforeDestroy: destroyChart,
+    watch: {
+      options: {
+        handler: function handler(newValue) {
+          var _this$chart;
+
+          (_this$chart = this.chart).update.apply(_this$chart, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
+        },
+        deep: true
+      }
+    } // The new Vue's 3 syntax.
 
   } : {
     render: function render() {
@@ -200,7 +210,18 @@ var component_generateVueComponent = function generateVueComponent(Highcharts, V
         ref: 'chart'
       });
     },
-    beforeUnmount: destroyChart
+    beforeUnmount: destroyChart,
+    watch: {
+      options: {
+        handler: function handler(newValue) {
+          var _this$chart2;
+
+          (_this$chart2 = this.chart).update.apply(_this$chart2, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
+        },
+        deep: true,
+        flush: "post"
+      }
+    }
   };
   return _objectSpread({
     template: '<div ref="chart"></div>',
@@ -226,16 +247,6 @@ var component_generateVueComponent = function generateVueComponent(Highcharts, V
       deepCopyOnUpdate: {
         type: Boolean,
         "default": true
-      }
-    },
-    watch: {
-      options: {
-        handler: function handler(newValue) {
-          var _this$chart;
-
-          (_this$chart = this.chart).update.apply(_this$chart, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
-        },
-        deep: true
       }
     },
     mounted: function mounted() {

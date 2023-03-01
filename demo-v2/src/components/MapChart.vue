@@ -10,7 +10,7 @@ export default {
     return {
       mapOptions: {
         chart: {
-          map: H.maps['myMapName'],
+          map: Highcharts.maps['myMapName'],
         },
         title: {
           text: 'Highmaps basic demo'

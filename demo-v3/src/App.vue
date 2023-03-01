@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Chart from './components/Chart.vue'
+import Chart from './components/Chart'
 import StockChart from './components/StockChart'
 import MapChart from './components/MapChart'
 

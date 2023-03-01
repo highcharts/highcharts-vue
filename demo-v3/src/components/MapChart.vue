@@ -3,19 +3,20 @@
 </template>
 
 <script>
+import Highcharts from 'highcharts';
 
 export default {
   data () {
     return {
       mapOptions: {
         chart: {
-          map: 'myMapName'
+          map: Highcharts.maps['myMapName'],
         },
         title: {
           text: 'Highmaps basic demo'
         },
         subtitle: {
-          text: 'Source map: <a href="http://code.highcharts.com/mapdata/custom/world.js">World, Miller projection, medium resolution</a>'
+          text: 'Source map: <a href="https://code.highcharts.com/mapdata/custom/world.topo.json">World, Miller projection, medium resolution</a>'
         },
         mapNavigation: {
           enabled: true,

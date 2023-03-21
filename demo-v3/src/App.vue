@@ -11,6 +11,7 @@
       <button @click="select('chart')" :class="{btnActive: selected === 'chart'}">Chart</button>
       <button @click="select('stockChart')" :class="{btnActive: selected === 'stockChart'}">Stock Chart</button>
       <button @click="select('mapChart')" :class="{btnActive: selected === 'mapChart'}">Map Chart</button>
+      <button @click="select('chartCompositionApi')" :class="{btnActive: selected === 'chartCompositionApi'}">Chart (Composition API)</button>
     </div>
     <keep-alive>
       <component :is="currentView"></component>
@@ -22,6 +23,7 @@
 import Chart from './components/Chart.vue'
 import StockChart from './components/StockChart'
 import MapChart from './components/MapChart'
+import ChartCompositionApi from './components/ChartCompositionApi.vue'
 
 export default {
   name: 'app',
@@ -34,7 +36,8 @@ export default {
   components: {
     chart: Chart,
     stockChart: StockChart,
-    mapChart: MapChart
+    mapChart: MapChart,
+    chartCompositionApi: ChartCompositionApi
   },
   methods: {
     activate (elem) {

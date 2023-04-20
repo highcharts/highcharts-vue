@@ -2,7 +2,7 @@
 
 Official Highcharts wrapper for Vue framework
 
-**This package now also supports Vue v3** :tada:
+**This package now also supports Vue v3 and Composition API** :tada:
 
 ## Table of Contents
 

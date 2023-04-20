@@ -124,7 +124,6 @@ var external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highch
 
 // CONCATENATED MODULE: ./utils/tools.js
 
-
 function doCopy(copy, original, copyArray) {
   // Callback function to iterate on array or object elements
   function callback(value, key) {
@@ -136,121 +135,141 @@ function doCopy(copy, original, copyArray) {
       copy[key] = original[key];
     }
   }
-
   if (external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default.a.isArray(original)) {
     original.forEach(callback);
   } else {
     external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default.a.objectEach(original, callback);
   }
-
   return copy;
 }
-
 var copyObject = function copyObject(obj, copyArray) {
   return doCopy({}, obj, copyArray);
 };
-
 
 // EXTERNAL MODULE: external {"root":"Vue","commonjs":"vue","commonjs2":"vue","amd":"vue"}
 var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_ = __webpack_require__(1);
 var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_default = /*#__PURE__*/__webpack_require__.n(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_);
 
 // CONCATENATED MODULE: ./src/component.js
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
-
-
-function destroyChart() {
-  if (this.chart) {
-    this.chart.destroy();
+var CommonComponentProperties = {
+  template: '<div ref="chart"></div>',
+  props: {
+    constructorType: {
+      type: String,
+      "default": 'chart'
+    },
+    options: {
+      type: Object,
+      required: true
+    },
+    callback: Function,
+    updateArgs: {
+      type: Array,
+      "default": function _default() {
+        return [true, true];
+      }
+    },
+    highcharts: {
+      type: Object
+    },
+    deepCopyOnUpdate: {
+      type: Boolean,
+      "default": true
+    }
   }
-}
-
+};
 var component_generateVueComponent = function generateVueComponent(Highcharts, VueVersion) {
   var VUE_MAJOR = VueVersion.split('.')[0];
-  var VERSION_DEPENDENT_PROPS = VUE_MAJOR < 3 ? {
-    // Fallback options for Vue v2 to keep backward compatibility.
-    render: function render(createElement) {
-      return createElement('div', {
-        ref: 'chart'
-      });
-    },
-    beforeDestroy: destroyChart // The new Vue's 3 syntax.
 
-  } : {
+  // return component compatible with Vue2
+  if (VUE_MAJOR < 3) {
+    return _objectSpread(_objectSpread({}, CommonComponentProperties), {}, {
+      render: function render(createElement) {
+        return createElement('div', {
+          ref: 'chart'
+        });
+      },
+      beforeDestroy: function beforeDestroy() {
+        if (this.chart) {
+          this.chart.destroy();
+        }
+      },
+      watch: {
+        options: {
+          handler: function handler(newValue) {
+            var _this$chart;
+            (_this$chart = this.chart).update.apply(_this$chart, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
+          },
+          deep: true
+        }
+      },
+      mounted: function mounted() {
+        var HC = this.highcharts || Highcharts;
+        if (this.options && HC[this.constructorType]) {
+          this.chart = HC[this.constructorType](this.$refs.chart, copyObject(this.options, true),
+          // #80
+          this.callback ? this.callback : null);
+        } else {
+          !this.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(this.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
+        }
+      }
+    });
+  }
+
+  // otherwise, return a component for Vue3
+  return _objectSpread(_objectSpread({}, CommonComponentProperties), {}, {
     render: function render() {
       return Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["h"])('div', {
         ref: 'chart'
       });
     },
-    beforeUnmount: destroyChart
-  };
-  return _objectSpread({
-    template: '<div ref="chart"></div>',
-    props: {
-      constructorType: {
-        type: String,
-        "default": 'chart'
-      },
-      options: {
-        type: Object,
-        required: true
-      },
-      callback: Function,
-      updateArgs: {
-        type: Array,
-        "default": function _default() {
-          return [true, true];
+    setup: function setup(props) {
+      var chart = Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["ref"])(null);
+      var HighchartsChart;
+      Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["onMounted"])(function () {
+        var HC = props.highcharts || Highcharts;
+        if (props.options && HC[props.constructorType]) {
+          HighchartsChart = HC[props.constructorType](chart.value, copyObject(props.options, true),
+          // #80
+          props.callback ? props.callback : null);
+        } else {
+          !props.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(props.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
         }
-      },
-      highcharts: {
-        type: Object
-      },
-      deepCopyOnUpdate: {
-        type: Boolean,
-        "default": true
-      }
-    },
-    watch: {
-      options: {
-        handler: function handler(newValue) {
-          var _this$chart;
-
-          (_this$chart = this.chart).update.apply(_this$chart, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
-        },
+      });
+      Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["watch"])(function () {
+        return props.options;
+      }, function (options, prevOptions) {
+        var _HighchartsChart;
+        (_HighchartsChart = HighchartsChart).update.apply(_HighchartsChart, [copyObject(options, props.deepCopyOnUpdate)].concat(_toConsumableArray(props.updateArgs)));
+      }, {
         deep: true
-      }
-    },
-    mounted: function mounted() {
-      var HC = this.highcharts || Highcharts; // Check whether the chart configuration object is passed, as well as the constructor is valid.
-
-      if (this.options && HC[this.constructorType]) {
-        this.chart = HC[this.constructorType](this.$refs.chart, copyObject(this.options, true), // Always pass the deep copy when generating a chart. #80
-        this.callback ? this.callback : null);
-      } else {
-        !this.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(this.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
-      }
+      });
+      Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["onBeforeUnmount"])(function () {
+        if (HighchartsChart) {
+          HighchartsChart.destroy();
+        }
+      });
+      return {
+        chart: chart,
+        props: props
+      };
     }
-  }, VERSION_DEPENDENT_PROPS);
+  });
 };
-
 /* harmony default export */ var component = (component_generateVueComponent);
 // CONCATENATED MODULE: ./src/index.js
 

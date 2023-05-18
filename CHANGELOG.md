@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.1](https://github.com/highcharts/highcharts-vue/compare/v1.4.0...v1.4.1) (2023-04-20)
+
+### Features
+* **composition-api:** Added support for the Composition API. ([18532db](https://github.com/highcharts/highcharts-vue/pull/229/commits/18532db4dbb78c5a1fd89c0d79bc1579f50a20fe))
+* **eslint update:** Updated Eslint version.
+
+
 ## [1.4.0](https://github.com/highcharts/highcharts-vue/compare/v1.3.5...v1.4.0) (2021-05-26)
 
 

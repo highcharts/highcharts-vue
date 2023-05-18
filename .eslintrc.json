@@ -1,35 +1,18 @@
 {
-  "extends": [
-    "plugin:vue/essential",
-    "standard"
-  ],
+  "plugins": ["standard"],
+  "extends": ["plugin:vue/essential"],
   "env": {
     "jest": true
   },
   "rules": {
     "no-new": 0,
-    "vue/html-indent": [
-      "error",
-      2
-    ],
-    "standard/object-curly-even-spacing": [
-      2,
-      "either"
-    ],
-    "standard/array-bracket-even-spacing": [
-      2,
-      "either"
-    ],
-    "standard/computed-property-even-spacing": [
-      2,
-      "even"
-    ],
-    "standard/no-callback-literal": [
-      2,
-      [
-        "cb",
-        "callback"
-      ]
-    ]
+    "vue/html-indent": ["error", 2],
+    "vue/multi-word-component-names": ["error", {
+        "ignores": ["highcharts", "Chart"]
+    }],
+    "standard/object-curly-even-spacing": [2, "either"],
+    "standard/array-bracket-even-spacing": [2, "either"],
+    "standard/computed-property-even-spacing": [2, "even"],
+    "standard/no-callback-literal": [2, ["cb", "callback"]]
   }
 }

@@ -34,9 +34,7 @@ const generateVueComponent = function (Highcharts, VueVersion) {
   if (VUE_MAJOR < 3) {
     return {
       ...CommonComponentProperties,
-      render: (createElement) => createElement('div', {
-        ref: 'chart'
-      }),
+      render: (createElement) => createElement('div', { ref: 'chart' }),
       beforeDestroy() {
         if (this.chart) {
           this.chart.destroy()
@@ -69,37 +67,38 @@ const generateVueComponent = function (Highcharts, VueVersion) {
   // otherwise, return a component for Vue3
   return {
     ...CommonComponentProperties,
-    render () { return h('div', { ref: 'chart' }) },
+    render () { return h('div', { ref: 'chartContainer' }) },
     setup(props) {
-      const chart = ref(null);
-
-      let HighchartsChart;
+      const chartContainer = ref(null),
+        chart = ref({});
 
       onMounted(() => {
         let HC = props.highcharts || Highcharts;
 
         if (props.options && HC[props.constructorType]) {
-          HighchartsChart = HC[props.constructorType](
-            chart.value,
+          chart.value = HC[props.constructorType](
+            chartContainer.value,
             copyObject(props.options, true), // #80
             props.callback ? props.callback : null
           )
+        } else if (!props.options) {
+          console.warn('The "options" parameter was not passed.');
         } else {
-          (!props.options) ? console.warn('The "options" parameter was not passed.') : console.warn(`'${props.constructorType}' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported.`)
+          console.warn(`'${props.constructorType}' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported.`);
         }
       })
 
       watch(() => props.options, (options, prevOptions) => {
-        HighchartsChart.update(copyObject(options, props.deepCopyOnUpdate), ...props.updateArgs)
+        chart.value.update(copyObject(options, props.deepCopyOnUpdate), ...props.updateArgs)
       }, { deep: true });
 
       onBeforeUnmount(() => {
-        if (HighchartsChart) {
-          HighchartsChart.destroy()
+        if (chart.value) {
+          chart.value.destroy()
         }
       });
 
-      return { chart, props };
+      return { chart, chartContainer, props };
     }
   }
 }

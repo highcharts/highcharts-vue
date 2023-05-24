@@ -7,9 +7,7 @@
   "rules": {
     "no-new": 0,
     "vue/html-indent": ["error", 2],
-    "vue/multi-word-component-names": ["error", {
-        "ignores": ["highcharts", "Chart"]
-    }],
+    "vue/multi-word-component-names": 0,
     "standard/object-curly-even-spacing": [2, "either"],
     "standard/array-bracket-even-spacing": [2, "either"],
     "standard/computed-property-even-spacing": [2, "even"],

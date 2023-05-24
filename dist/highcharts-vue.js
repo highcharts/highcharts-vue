@@ -234,37 +234,40 @@ var component_generateVueComponent = function generateVueComponent(Highcharts, V
   return _objectSpread(_objectSpread({}, CommonComponentProperties), {}, {
     render: function render() {
       return Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["h"])('div', {
-        ref: 'chart'
+        ref: 'chartContainer'
       });
     },
     setup: function setup(props) {
-      var chart = Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["ref"])(null);
-      var HighchartsChart;
+      var chartContainer = Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["ref"])(null),
+        chart = Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["ref"])({});
       Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["onMounted"])(function () {
         var HC = props.highcharts || Highcharts;
         if (props.options && HC[props.constructorType]) {
-          HighchartsChart = HC[props.constructorType](chart.value, copyObject(props.options, true),
+          chart.value = HC[props.constructorType](chartContainer.value, copyObject(props.options, true),
           // #80
           props.callback ? props.callback : null);
+        } else if (!props.options) {
+          console.warn('The "options" parameter was not passed.');
         } else {
-          !props.options ? console.warn('The "options" parameter was not passed.') : console.warn("'".concat(props.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
+          console.warn("'".concat(props.constructorType, "' constructor-type is incorrect. Sometimes this error is caused by the fact, that the corresponding module wasn't imported."));
         }
       });
       Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["watch"])(function () {
         return props.options;
       }, function (options, prevOptions) {
-        var _HighchartsChart;
-        (_HighchartsChart = HighchartsChart).update.apply(_HighchartsChart, [copyObject(options, props.deepCopyOnUpdate)].concat(_toConsumableArray(props.updateArgs)));
+        var _chart$value;
+        (_chart$value = chart.value).update.apply(_chart$value, [copyObject(options, props.deepCopyOnUpdate)].concat(_toConsumableArray(props.updateArgs)));
       }, {
         deep: true
       });
       Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["onBeforeUnmount"])(function () {
-        if (HighchartsChart) {
-          HighchartsChart.destroy();
+        if (chart.value) {
+          chart.value.destroy();
         }
       });
       return {
         chart: chart,
+        chartContainer: chartContainer,
         props: props
       };
     }

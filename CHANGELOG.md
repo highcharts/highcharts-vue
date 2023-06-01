@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/highcharts/highcharts-vue/compare/v1.4.1...v1.4.2) (2023-06-01)
+
 ## [1.4.1](https://github.com/highcharts/highcharts-vue/compare/v1.4.0...v1.4.1) (2023-04-20)
 
 ### Features

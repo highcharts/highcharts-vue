@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [1.4.2](https://github.com/highcharts/highcharts-vue/compare/v1.4.1...v1.4.2) (2023-06-01)
+* **chart object bugfix:** Fixed #235, chart object is now accessible again through ref. ([594d51c](https://github.com/highcharts/highcharts-vue/commit/c4d0f79cbf689a704fa9e27394c21b8a77ca7813))
 
 ## [1.4.1](https://github.com/highcharts/highcharts-vue/compare/v1.4.0...v1.4.1) (2023-04-20)
 

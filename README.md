@@ -247,12 +247,13 @@ Server always runs at `http://localhost:8080`, unless it's taken by another proc
 - Gantt: https://codesandbox.io/s/magical-feather-56lkmv
 
 ### Vue2
-- Basic line: https://codesandbox.io/s/highcharts-vue-demo-ttner
-- Stock: https://codesandbox.io/s/highcharts-vue-demo-qkf43
-- Map: https://codesandbox.io/s/highcharts-vue-demo-cop9z
-- Gantt: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
+- Basic line: https://codesandbox.io/s/xenodochial-williamson-w7yvk4
+- Stock: https://codesandbox.io/s/angry-snyder-2k5wff
+- Map: https://codesandbox.io/s/jolly-pare-h7j43z
+- Gantt: https://codesandbox.io/s/youthful-khayyam-c4tylq
 
 ### Other demos
+- Using the `chart` object: https://codesandbox.io/s/hidden-silence-ykkhvk
 - Store: https://codesandbox.io/s/highcharts-vue-demo-zrok6
 - NuxtJS (with SSR): https://codesandbox.io/s/z8jovxx04
 - Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m 

@@ -240,11 +240,19 @@ npm run app-v3
 Server always runs at `http://localhost:8080`, unless it's taken by another process. Then you need to manually copy & visit the address displayed in terminal.
 
 ## Online demos
+### Vue3
+- Basic line: https://codesandbox.io/s/clever-newton-6c6m3s
+- Stock: https://codesandbox.io/s/unruffled-tree-n3qrt8
+- Maps: https://codesandbox.io/s/wonderful-northcutt-72jq96
+- Gantt: https://codesandbox.io/s/magical-feather-56lkmv
 
+### Vue2
 - Basic line: https://codesandbox.io/s/highcharts-vue-demo-ttner
 - Stock: https://codesandbox.io/s/highcharts-vue-demo-qkf43
 - Map: https://codesandbox.io/s/highcharts-vue-demo-cop9z
 - Gantt: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
+
+### Other demos
 - Store: https://codesandbox.io/s/highcharts-vue-demo-zrok6
 - NuxtJS (with SSR): https://codesandbox.io/s/z8jovxx04
 - Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m 
@@ -265,5 +273,5 @@ Here is the list of all available props allowed to pass directly to your `<highc
 
 ## Useful links
 
-[Highcharts General Documentation](https://www.highcharts.com/docs)
-[Highcharts API](https://api.highcharts.com/highcharts/)
+- [Highcharts General Documentation](https://www.highcharts.com/docs)
+- [Highcharts API](https://api.highcharts.com/highcharts/)

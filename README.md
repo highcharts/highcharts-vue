@@ -239,13 +239,13 @@ npm run app-v3
 Server always runs at `http://localhost:8080`, unless it's taken by another process. Then you need to manually copy & visit the address displayed in terminal.
 
 ## Online demos
-### Vue3
+### Vue 3
 - Basic line: https://codesandbox.io/s/clever-newton-6c6m3s
 - Stock: https://codesandbox.io/s/unruffled-tree-n3qrt8
 - Maps: https://codesandbox.io/s/wonderful-northcutt-72jq96
 - Gantt: https://codesandbox.io/s/magical-feather-56lkmv
 
-### Vue2
+### Vue 2
 - Basic line: https://codesandbox.io/s/xenodochial-williamson-w7yvk4
 - Stock: https://codesandbox.io/s/angry-snyder-2k5wff
 - Map: https://codesandbox.io/s/jolly-pare-h7j43z

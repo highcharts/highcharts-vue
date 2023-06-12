@@ -1,8 +1,7 @@
 # Highcharts-Vue
+*The official Highcharts wrapper for Vue framework.*
 
-Official Highcharts wrapper for Vue framework
-
-**This package now also supports Vue v3 and Composition API** :tada:
+**This package now also supports Vue 3 and Composition API** :tada:
 
 ## Table of Contents
 
@@ -26,10 +25,10 @@ Official Highcharts wrapper for Vue framework
 ## Getting started
 
 ### Requirements
-
-- **Node.JS**, **NPM** installed globally in your OS
-- **Vue**, **Highcharts** libraries (updated) installed in your project.
-Highcharts package version should be at least `v5.0.11`, but it is always better to keep it updated.
+In order to use `highcharts-vue` you need to have the following installed:
+- `npm` (installed globally in the OS)
+- `vue` (version >= 2.0.0)
+- `highcharts` (*Highcharts package version should be at least `v5.0.11`, but it is always better to keep it up to date.*)
 
 ### Installation
 
@@ -57,7 +56,7 @@ Vue.use(HighchartsVue)
 This option is recommended for direct use in specific components of your app. First, you should import the Chart component object from Highcharts-Vue package in your component file:
 
 ```js
-import {Chart} from 'highcharts-vue'
+import { Chart } from 'highcharts-vue'
 ```
 Then, you've to register it in your Vue instance configuration, namely in `components`  section:
 
@@ -86,7 +85,7 @@ new Vue({
     return {
       chartOptions: {
         series: [{
-          data: [1,2,3] // sample data
+          data: [1, 2, 3] // sample data
         }]
       }
     }
@@ -95,7 +94,7 @@ new Vue({
 ```
 #### Importing Highcharts modules
 
-To use any of Highcharts modules, you're obligated to import  that module to your file, as well as Highcharts package itself and add that module by passing Highcharts to it, for example:
+To use any of Highcharts modules, you're obligated to import that module to your file, as well as Highcharts package itself and add that module by passing Highcharts to it, for example:
 
 ```js
 import Highcharts from 'highcharts'
@@ -104,7 +103,7 @@ import exportingInit from 'highcharts/modules/exporting'
 exportingInit(Highcharts)
 ```
 
-Demo: https://codesandbox.io/s/highcharts-vue-demo-fv7m6
+Demo: https://codesandbox.io/s/highcharts-vue-demo-forked-ws2qlc
 
 #### Implementing stockChart, mapChart and ganttChart
 
@@ -119,13 +118,13 @@ stockInit(Highcharts)
 <highcharts :constructor-type="'stockChart'" :options="chartOptions"></highcharts>
 ```
 
-Stock demo: https://codesandbox.io/s/highcharts-vue-demo-qkf43 <br>
-Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z <br>
-Gantt demo: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
+Stock demo: https://codesandbox.io/s/unruffled-tree-n3qrt8 <br>
+Map demo: https://codesandbox.io/s/wonderful-northcutt-72jq96 <br>
+Gantt demo: https://codesandbox.io/s/magical-feather-56lkmv
 
 #### Loading maps
 
-There are two ways of loading maps and using them with wrapper. You can install the [@highcharts/map-collection`](https://www.npmjs.com/package/@highcharts/map-collection) npm package with all maps included, and then import that maps which you would like to use in your project:
+There are two ways of loading maps and using them with wrapper. You can install the [@highcharts/map-collection](https://www.npmjs.com/package/@highcharts/map-collection) npm package with all maps included, and then import that maps which you would like to use in your project:
 
 ```js
 import Highcharts from 'highcharts'
@@ -141,7 +140,7 @@ If you won't install a package with all maps, there is an option to choose neces
 
 *The [Demo apps](#demo-apps) included in this repostory show the second approach.*
 
-Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z
+Map demo: https://codesandbox.io/s/wonderful-northcutt-72jq96
 
 #### Changing global component tag name
 If you would like to use global component tag name other than `<highcharts>`, you could achieve that by passing object with `tagName: [TAG_NAME]` pair as an option argument when registering the plugin, for example:
@@ -190,7 +189,7 @@ import Highcharts from 'highcharts'
 import HighchartsVue from 'highcharts-vue'
 
 Vue.use(HighchartsVue, {
-	highcharts: Highcharts
+  highcharts: Highcharts
 })
 ```
 
@@ -206,17 +205,17 @@ A **second way** is to pass the Highcharts instance through the props of `highch
 import Highcharts from 'highcharts'
 
 export default {
-	name: 'app',
-	data() {
-		return {
-			hcInstance: Highcharts,
-			chartOptions: {
-				series: [{
-					data: [1, 2, 3]
-				}]
-			}
-		}
-	}
+  name: 'app',
+    data() {
+      return {
+	hcInstance: Highcharts,
+	chartOptions: {
+	  series: [{
+	    data: [1, 2, 3]
+	  }]
+        }
+    }
+  }
 }
 ```
 
@@ -240,11 +239,20 @@ npm run app-v3
 Server always runs at `http://localhost:8080`, unless it's taken by another process. Then you need to manually copy & visit the address displayed in terminal.
 
 ## Online demos
+### Vue 3
+- Basic line: https://codesandbox.io/s/clever-newton-6c6m3s
+- Stock: https://codesandbox.io/s/unruffled-tree-n3qrt8
+- Maps: https://codesandbox.io/s/wonderful-northcutt-72jq96
+- Gantt: https://codesandbox.io/s/magical-feather-56lkmv
 
-- Basic line: https://codesandbox.io/s/highcharts-vue-demo-ttner
-- Stock: https://codesandbox.io/s/highcharts-vue-demo-qkf43
-- Map: https://codesandbox.io/s/highcharts-vue-demo-cop9z
-- Gantt: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
+### Vue 2
+- Basic line: https://codesandbox.io/s/xenodochial-williamson-w7yvk4
+- Stock: https://codesandbox.io/s/angry-snyder-2k5wff
+- Map: https://codesandbox.io/s/jolly-pare-h7j43z
+- Gantt: https://codesandbox.io/s/youthful-khayyam-c4tylq
+
+### Other demos
+- Using the `chart` object: https://codesandbox.io/s/hidden-silence-ykkhvk
 - Store: https://codesandbox.io/s/highcharts-vue-demo-zrok6
 - NuxtJS (with SSR): https://codesandbox.io/s/z8jovxx04
 - Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m 
@@ -265,5 +273,5 @@ Here is the list of all available props allowed to pass directly to your `<highc
 
 ## Useful links
 
-[Highcharts General Documentation](https://www.highcharts.com/docs)
-[Highcharts API](https://api.highcharts.com/highcharts/)
+- [Highcharts General Documentation](https://www.highcharts.com/docs)
+- [Highcharts API](https://api.highcharts.com/highcharts/)

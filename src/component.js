@@ -1,5 +1,5 @@
 import { copyObject } from '../utils/tools'
-import { h, ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { h, ref, shallowRef, watch, onMounted, onBeforeUnmount } from 'vue'
 
 const CommonComponentProperties = {
   template: '<div ref="chart"></div>',
@@ -70,7 +70,7 @@ const generateVueComponent = function (Highcharts, VueVersion) {
     render () { return h('div', { ref: 'chartContainer' }) },
     setup(props) {
       const chartContainer = ref(null),
-        chart = ref({});
+        chart = shallowRef({});
 
       onMounted(() => {
         let HC = props.highcharts || Highcharts;

@@ -239,7 +239,7 @@ var component_generateVueComponent = function generateVueComponent(Highcharts, V
     },
     setup: function setup(props) {
       var chartContainer = Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["ref"])(null),
-        chart = Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["ref"])({});
+        chart = Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["shallowRef"])({});
       Object(external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_["onMounted"])(function () {
         var HC = props.highcharts || Highcharts;
         if (props.options && HC[props.constructorType]) {

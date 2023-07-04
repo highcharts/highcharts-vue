@@ -240,10 +240,10 @@ Server always runs at `http://localhost:8080`, unless it's taken by another proc
 
 ## Online demos
 ### Vue 3
-- Basic line: https://codesandbox.io/s/clever-newton-6c6m3s
-- Stock: https://codesandbox.io/s/unruffled-tree-n3qrt8
-- Maps: https://codesandbox.io/s/wonderful-northcutt-72jq96
-- Gantt: https://codesandbox.io/s/magical-feather-56lkmv
+- Basic line: https://codesandbox.io/s/clever-varahamihira-ttmtxm
+- Stock: https://codesandbox.io/s/zealous-allen-g993d5
+- Maps: https://codesandbox.io/s/romantic-mcnulty-y82yv8
+- Gantt: https://codesandbox.io/s/sleepy-greider-vgntkl
 
 ### Vue 2
 - Basic line: https://codesandbox.io/s/xenodochial-williamson-w7yvk4
@@ -252,7 +252,7 @@ Server always runs at `http://localhost:8080`, unless it's taken by another proc
 - Gantt: https://codesandbox.io/s/youthful-khayyam-c4tylq
 
 ### Other demos
-- Using the `chart` object: https://codesandbox.io/s/hidden-silence-ykkhvk
+- Using the `chart` object: https://codesandbox.io/s/xenodochial-wood-6jctd6
 - Store: https://codesandbox.io/s/highcharts-vue-demo-zrok6
 - NuxtJS (with SSR): https://codesandbox.io/s/z8jovxx04
 - Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m 

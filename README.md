@@ -240,7 +240,7 @@ Server always runs at `http://localhost:8080`, unless it's taken by another proc
 
 ## Online demos
 ### Vue 3
-- Basic line: https://codesandbox.io/s/clever-varahamihira-ttmtxm
+- Basic line: https://codesandbox.io/s/silly-bhaskara-k64zry
 - Stock: https://codesandbox.io/s/zealous-allen-g993d5
 - Maps: https://codesandbox.io/s/romantic-mcnulty-y82yv8
 - Gantt: https://codesandbox.io/s/sleepy-greider-vgntkl

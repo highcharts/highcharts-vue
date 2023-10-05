@@ -70,7 +70,7 @@ const generateVueComponent = function (Highcharts, VueVersion) {
     render () { return h('div', { ref: 'chartContainer' }) },
     setup(props) {
       const chartContainer = ref(null),
-        chart = shallowRef({});
+        chart = shallowRef(null);
 
       onMounted(() => {
         let HC = props.highcharts || Highcharts;

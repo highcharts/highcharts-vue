@@ -1,5 +1,5 @@
 import _Vue, { VNode, PropOptions, WatchOptionsWithHandler, WatchHandler, CreateElement } from "vue";
-import * as Highcharts from "highcharts"
+import * as Highcharts from "highcharts";
 
 export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject]
 

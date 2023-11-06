@@ -3,7 +3,15 @@
   "version": "1.4.3",
   "description": "Highcharts wrapper Vue component",
   "main": "dist/highcharts-vue.min.js",
-  "typings": "types/highcharts-vue.d.ts",
+  "types": "./types/vue2/highcharts-vue.d.ts",
+  "typesVersions": {
+    "<3.0.0": {
+      "*": ["types/vue2/*"]
+    },
+    ">=3.0.0": {
+      "*": ["types/vue3/*"]
+    }
+  },
   "scripts": {
     "test": "jest",
     "build": "webpack",

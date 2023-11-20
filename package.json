@@ -3,15 +3,7 @@
   "version": "1.4.3",
   "description": "Highcharts wrapper Vue component",
   "main": "dist/highcharts-vue.min.js",
-  "types": "./types/vue2/highcharts-vue.d.ts",
-  "typesVersions": {
-    "<3.0.0": {
-      "*": ["types/vue2/*"]
-    },
-    ">=3.0.0": {
-      "*": ["types/vue3/*"]
-    }
-  },
+  "typings": "types/highcharts-vue.d.ts",
   "scripts": {
     "test": "jest",
     "build": "webpack",
@@ -21,7 +13,8 @@
     "app-v3": "cd demo-v3 && npx yarn serve",
     "lint": "eslint . --ext .js,.vue",
     "lint:fix": "eslint . --ext .js,.vue --fix",
-    "release": "standard-version"
+    "release": "standard-version",
+    "postinstall": "node generate_types.js"
   },
   "jest": {
     "moduleFileExtensions": [

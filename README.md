@@ -8,15 +8,16 @@
 1. [Getting started](#getting-started)
     1. [Requirements](#requirements)
     2. [Installation](#installation)
-2. [Using](#using)
+2. [Usage](#usage)
 	1. [Registering globally as a plugin](#registering-globally-as-a-plugin)
 	2. [Registering locally in your component](#registering-locally-in-your-component)
-	3. [Implementing stockChart, mapChart and ganttChart](#implementing-stockchart-mapchart-and-ganttchart)
-	4. [Loading maps](#loading-maps)
-	5. [Changing global component tag name](#changing-global-component-tag-name)
-	6. [Chart callback parameter](#chart-callback-parameter)
- 	7. [Chart object reference](#chart-object-reference)
-	8. [Using a specific Highcharts instance](#using-a-specific-highcharts-instance)
+    3. [Using with NuxtJS](#using-with-nuxtjs)
+	4. [Implementing stockChart, mapChart and ganttChart](#implementing-stockchart-mapchart-and-ganttchart)
+	5. [Loading maps](#loading-maps)
+	6. [Changing global component tag name](#changing-global-component-tag-name)
+	7. [Chart callback parameter](#chart-callback-parameter)
+ 	8. [Chart object reference](#chart-object-reference)
+	9. [Using a specific Highcharts instance](#using-a-specific-highcharts-instance)
 3. [Demo apps](#demo-apps)
 4. [Online demos](#online-demos)
 5. [Component Properties](#component-properties)
@@ -37,7 +38,7 @@ Install `highcharts-vue` package by:
 ```cli
 npm install highcharts-vue
 ```
-### Using
+### Usage
 There are two ways of adding Highcharts-Vue wrapper to your project:
 
 #### Registering globally as a plugin
@@ -52,17 +53,6 @@ Next, you can register it as a plugin in your Vue object:
 Vue.use(HighchartsVue)
 ```
 
-#### Highcharts with NuxtJS
-Nuxt.js executes the code twice - first time on the server side and then on the client side. During the first run (on the server) the Highcharts object is not initialized as there is no `window` available. Thus, you should always check if Highcharts has already been initialized:
-```JavaScript
-import Highcharts from 'highcharts';
-import HighchartsExporting from 'highcharts/modules/exporting';
-
-if (typeof Highcharts === 'object') {
-    HighchartsExporting(Highcharts);
-}
-```
-
 #### Registering locally in your component
 This option is recommended for direct use in specific components of your app. First, you should import the Chart component object from Highcharts-Vue package in your component file:
 
@@ -74,12 +64,23 @@ Then, you've to register it in your Vue instance configuration, namely in `compo
 ```js
 {
   components: {
-    highcharts: Chart 
+    highcharts: Chart
   }
 }
 ```
 *NOTE:*
 *If you would like to use Highcharts-Vue wrapper by attaching it using `<script>` tag in your `<head>` section of HTML document, of course it is possible and you should use one of .js files from `dist` of this package directory. After that, the `HighchartsVue` object should be available from `window` scope. Here is the example with this way of implementation: [JSFiddle example](https://jsfiddle.net/BlackLabel/ukc2kqnb/)*
+
+### Using with NuxtJS
+Nuxt.js executes the code twice - first time on the server side and then on the client side. During the first run (on the server) the Highcharts object is not initialized as there is no `window` available. Thus, you should always check if Highcharts has already been initialized:
+```JavaScript
+import Highcharts from 'highcharts';
+import HighchartsExporting from 'highcharts/modules/exporting';
+
+if (typeof Highcharts === 'object') {
+    HighchartsExporting(Highcharts);
+}
+```
 
 ### Configure
 

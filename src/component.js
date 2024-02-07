@@ -23,7 +23,6 @@ const generateVueComponent = function (Highcharts, VueVersion) {
     }
 
   return {
-    template: '<div ref="chart"></div>',
     props: {
       constructorType: {
         type: String,

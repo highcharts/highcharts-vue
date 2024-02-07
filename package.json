@@ -1,19 +1,14 @@
 {
   "name": "highcharts-vue",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Highcharts wrapper Vue component",
   "main": "dist/highcharts-vue.min.js",
   "typings": "types/highcharts-vue.d.ts",
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "build:app-v2": "cd demo-v2 && npx yarn",
-    "app-v2": "cd demo-v2 && npx yarn dev",
     "build:app-v3": "cd demo-v3 && npx yarn",
-    "app-v3": "cd demo-v3 && npx yarn serve",
-    "lint": "eslint . --ext .js,.vue",
-    "lint:fix": "eslint . --ext .js,.vue --fix",
-    "release": "standard-version"
+    "app-v3": "cd demo-v3 && npx yarn serve"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -56,11 +51,11 @@
   ],
   "peerDependencies": {
     "highcharts": ">=5.0.0",
-    "vue": ">=1.0.0"
+    "vue": ">=3.0.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run test && npm run build && git add -A"
+      "pre-commit": "npm run test && npm run build && git add -A"
     }
   },
   "devDependencies": {
@@ -70,15 +65,11 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.0-beta.0",
-    "eslint": "^4.19.1",
-    "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "^7.9.0",
     "highcharts": ">=7.1.1",
     "husky": "^1.0.0-rc.13",
     "jest": "^24.8.0",
     "jest-serializer-vue": "^2.0.2",
     "standard": "^10.0.3",
-    "standard-version": "^8.0.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.10",
     "vue-jest": "^3.0.4",

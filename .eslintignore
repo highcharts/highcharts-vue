@@ -1,9 +1,0 @@
-dist/*
-
-demo-v2/src/js/*
-demo-v2/dist/*
-demo-v2/node_modules/*
-
-demo-v3/src/js/*
-demo-v3/dist/*
-demo-v3/node_modules/*

@@ -1,43 +1,31 @@
-import _Vue, { VNode, PropOptions, WatchOptionsWithHandler, WatchHandler, CreateElement } from "vue";
-import * as Highcharts from "highcharts"
+// Types for Vue3
+import { DefineComponent, App } from 'vue';
+import * as Highcharts from 'highcharts';
 
-export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject]
+export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject];
 
-declare module 'vue/types/options' {
-    interface ComponentOptions<V extends _Vue> {
-        constructorType?: string;
-        options?: Highcharts.Options;
-        callback?: Highcharts.ChartCallbackFunction;
-        updateArgs?: Array<ChartUpdateArgs>;
+declare module '@vue/runtime-core' {
+    export interface ComponentCustomProperties {
         highcharts?: typeof Highcharts;
-        deepCopyOnUpdate?: boolean;
     }
 }
 
-export interface ChartOptions {
-    tagName?: string;
+export interface ChartComponentOptions {
+    constructorType?: string;
+    options?: Highcharts.Options;
+    callback?: Highcharts.ChartCallbackFunction;
+    updateArgs?: ChartUpdateArgs;
     highcharts?: typeof Highcharts;
+    deepCopyOnUpdate?: boolean;
 }
 
-export interface ChartPropsObject {
-    constructorType: PropOptions;
-    options: PropOptions;
-    updateArgs: PropOptions;
-    callback: () => void;
+export interface ChartProps {
+    constructorType?: string;
+    options: Highcharts.Options;
+    updateArgs?: ChartUpdateArgs;
+    callback?: Highcharts.ChartCallbackFunction;
 }
 
-export interface ChartWatchObject {
-    options: WatchOptionsWithHandler<any>;
-}
+export const Chart: DefineComponent<ChartProps>;
 
-export class Chart extends _Vue {
-    chart: Highcharts.Chart;
-    props: ChartPropsObject;
-    template: string;
-    watch: ChartWatchObject;
-    beforeDestroy: () => void;
-    mounted: () => void;
-    render: (createElement: CreateElement) => VNode;
-}
-
-export default function install(vue: typeof _Vue, options?: ChartOptions): void;
+export default function install(app: App, options?: ChartComponentOptions): void;

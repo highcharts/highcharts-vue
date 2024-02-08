@@ -22,6 +22,11 @@
     },
     "license": "SEE LICENSE IN LICENSE",
     "files": ["dist", "src", "types"],
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint"
+        }
+    },
     "peerDependencies": {
         "highcharts": ">=5.0.0",
         "vue": ">=3.0.0"
@@ -32,6 +37,7 @@
         "babel-loader": "^9.1.3",
         "eslint": "^8.56.0",
         "eslint-plugin-vue": "^9.21.1",
+        "husky": "^9.0.10",
         "terser-webpack-plugin": "^5.3.10",
         "vue": "^3.4.16",
         "vue-loader": "^17.4.2",

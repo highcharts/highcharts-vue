@@ -5,13 +5,13 @@ module.exports = {
     mode: 'production',
     entry: {
         'highcharts-vue': './src/index.js',
-        'highcharts-vue.min': './src/index.js'
+        'highcharts-vue.min': './src/index.js',
     },
     output: {
         filename: '[name].js',
         library: 'HighchartsVue',
         libraryTarget: 'umd',
-        path: path.resolve(__dirname, './dist')
+        path: path.resolve(__dirname, './dist'),
     },
     externals: {
         highcharts: {
@@ -36,6 +36,8 @@ module.exports = {
     },
     optimization: {
         minimize: true,
-        minimizer: [new TerserPlugin({ include: /\.min\.js$/ })]
-    }
+        minimizer: [new TerserPlugin({
+            include: /\.min\.js$/,
+        })],
+    },
 };

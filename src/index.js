@@ -8,4 +8,4 @@ export default function install(app, options = {}) {
         options.tagName || 'highcharts',
         generateVueComponent(options.highcharts || Highcharts)
     );
-};
+}

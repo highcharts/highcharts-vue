@@ -215,7 +215,6 @@ function install(app) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   app.component(options.tagName || 'highcharts', component(options.highcharts || (external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default())));
 }
-;
 })();
 
 /******/ 	return __webpack_exports__;

@@ -2,30 +2,28 @@
 import { DefineComponent, App } from 'vue';
 import * as Highcharts from 'highcharts';
 
-export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject];
-
-declare module '@vue/runtime-core' {
-    export interface ComponentCustomProperties {
-        highcharts?: typeof Highcharts;
+declare module '@vue/runtime-cor' {
+    export interface GlobalComponents {
+        [key: string]: DefineComponent<ChartProps, {}, {}>
     }
 }
 
-export interface ChartComponentOptions {
+export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject];
+
+export interface ChartProps {
     constructorType?: string;
-    options?: Highcharts.Options;
+    options: Highcharts.Options;
     callback?: Highcharts.ChartCallbackFunction;
     updateArgs?: ChartUpdateArgs;
     highcharts?: typeof Highcharts;
     deepCopyOnUpdate?: boolean;
 }
 
-export interface ChartProps {
-    constructorType?: string;
-    options: Highcharts.Options;
-    updateArgs?: ChartUpdateArgs;
-    callback?: Highcharts.ChartCallbackFunction;
-}
-
 export const Chart: DefineComponent<ChartProps>;
 
-export default function install(app: App, options?: ChartComponentOptions): void;
+export interface HCVueInstallOptions {
+    tagName?: string;
+    highcharts?: typeof Highcharts;
+}
+
+export default function install(app: App, options?: HCVueInstallOptions): void;

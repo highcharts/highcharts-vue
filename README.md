@@ -1,15 +1,15 @@
 # Highcharts-Vue
 
-Official Highcharts wrapper for Vue framework
+**Official Highcharts integration with Vue framework.**
 
-**This package now also supports Vue v3** :tada:
+> ❗ **_IMPORTANT NOTE:_**  From `highcharts-vue@2.0.0`, this package offers support for Vue >= 3.0.0. If you'd like to use this package with Vue 2, you should stay with the latest versions of `highcharts-vue@1.x.x` ❗
 
 ## Table of Contents
 
 1. [Getting started](#getting-started)
     1. [Requirements](#requirements)
     2. [Installation](#installation)
-2. [Using](#using)
+2. [Usage](#usage)
 	1. [Registering globally as a plugin](#registering-globally-as-a-plugin)
 	2. [Registering locally in your component](#registering-locally-in-your-component)
 	3. [Implementing stockChart, mapChart and ganttChart](#implementing-stockchart-mapchart-and-ganttchart)
@@ -38,36 +38,33 @@ Install `highcharts-vue` package by:
 ```cli
 npm install highcharts-vue
 ```
-### Using
+### Usage
 There are two ways of adding Highcharts-Vue wrapper to your project:
 
 #### Registering globally as a plugin
 The way described below is recommended when wanted to make a wrapper component available from everywhere in your app. In your main app file should have Vue and Highcharts-Vue packages imported:
 
 ```js
-import Vue from 'vue'
-import HighchartsVue from 'highcharts-vue'
+import Vue from 'vue';
+import HighchartsVue from 'highcharts-vue';
 ```
-Next, you can register it as a plugin in your Vue object:
+Next, you can register it as a plugin (depending on the version of Vue):
 ```js
+// for Vue 2
 Vue.use(HighchartsVue)
+
+// for Vue 3
+app.use(HighchartsVue)
 ```
 
 #### Registering locally in your component
-This option is recommended for direct use in specific components of your app. First, you should import the Chart component object from Highcharts-Vue package in your component file:
+This option is recommended for direct use in specific components of your app. First, you should import the Chart component object from highcharts-vue package in your component file:
 
 ```js
-import {Chart} from 'highcharts-vue'
+import { Chart } from 'highcharts-vue'
 ```
-Then, you've to register it in your Vue instance configuration, namely in `components`  section:
+Then, you can use the `Chart` component in your Vue components.
 
-```js
-{
-  components: {
-    highcharts: Chart 
-  }
-}
-```
 *NOTE:*
 *If you would like to use Highcharts-Vue wrapper by attaching it using `<script>` tag in your `<head>` section of HTML document, of course it is possible and you should use one of .js files from `dist` of this package directory. After that, the `HighchartsVue` object should be available from `window` scope. Here is the example with this way of implementation: [JSFiddle example](https://jsfiddle.net/BlackLabel/ukc2kqnb/)*
 
@@ -139,7 +136,7 @@ Highcharts.maps['myMapName'] = mapData
 
 If you won't install a package with all maps, there is an option to choose necessary map from [Highmaps collection](https://code.highcharts.com/mapdata/) collection and copy a map data into a new file in your project. Then just import it wherever you want, and use it in the same way like above.
 
-*The [Demo apps](#demo-apps) included in this repostory show the second approach.*
+*The [Demo apps](#demo-apps) included in this repository show the second approach.*
 
 Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z
 
@@ -222,9 +219,9 @@ export default {
 
 *Note that both ways of usage are **optional**, because wrapper automatically uses available Highcharts instance by default from peer dependency.*
 
-## Demo apps
+## Demo apps (only `highcharts-vue@1.x.x`)
 
-If you would like to play with live app created with Highcharts Vue wrapper, or just want to see how it everything should looks like, this repository include the demo examples, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter below commands from the repository root level:
+If you would like to play with live app created with this package, or just want to see how it everything should looks like, this repository include the demo examples, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter below commands from the repository root level:
 
 To run the demo based on Vue v2:
 ```cli

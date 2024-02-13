@@ -6,6 +6,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:vue/vue3-essential'
     ],
+    ignorePatterns: ['**/*.d.ts'],
     overrides: [{
         env: {
             node: true

@@ -3,12 +3,12 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [2.0.0](https://github.com/highcharts/highcharts-vue/pull/258) (2024-02-08)
-* ‼️ **From `highcharts-vue@2.0.0`, this package will only be compatible with Vue 3.** ‼️
+* ❗ **From `highcharts-vue@2.0.0`, this package will only be compatible with Vue 3.** ❗
 * Added full TypeScript support for Vue 3.
-* Created a Vue 3-specific demo example.
 * Updated all the dev dependencies to the most recent versions.
 * Got rid of Vue 2-related dependencies and potential security vulnerabilites.
 * Got rid of Vue 2-specific code (and thus, reduced the bundle size).
+* Got rid of the demo-v2 and demo-v3 examples.
 
 ### [1.4.3](https://github.com/highcharts/highcharts-vue/compare/v1.4.2...v1.4.3) (2023-07-03)
 * **chart update bugfix:** Fixed #239, chart object was reactive. ([076b6de](https://github.com/highcharts/highcharts-vue/pull/240/commits/076b6debef5c6b7c7a6f14685838972a7dbb1850))

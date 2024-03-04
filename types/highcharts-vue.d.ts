@@ -2,14 +2,6 @@
 import { DefineComponent, App } from 'vue';
 import * as Highcharts from 'highcharts';
 
-declare module '@vue/runtime-cor' {
-    export interface GlobalComponents {
-        [key: string]: DefineComponent<ChartProps, {}, {}>
-    }
-}
-
-export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject];
-
 export interface ChartProps {
     constructorType?: string;
     options: Highcharts.Options;
@@ -18,6 +10,14 @@ export interface ChartProps {
     highcharts?: typeof Highcharts;
     deepCopyOnUpdate?: boolean;
 }
+
+declare module '@vue/runtime-core' {
+    export interface GlobalComponents {
+        [key: string]: DefineComponent<ChartProps, {}, {}>
+    }
+}
+
+export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject];
 
 export const Chart: DefineComponent<ChartProps>;
 

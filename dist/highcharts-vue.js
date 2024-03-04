@@ -111,26 +111,28 @@ var external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highch
 var external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default = /*#__PURE__*/__webpack_require__.n(external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_);
 ;// CONCATENATED MODULE: ./src/utils.js
 
-function doCopy(copy, original, copyArray) {
+var copyObject = function copyObject(original, copyArray) {
+  // Initialize the copy based on the original's type
+  var copy = external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isArray(original) ? [] : {};
+
   // Callback function to iterate on array or object elements
   function callback(value, key) {
     // Copy the contents of objects
     if (external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isObject(value, !copyArray) && !external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isClass(value) && !external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isDOMElement(value)) {
-      copy[key] = doCopy(copy[key] || external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isArray(value) ? [] : {}, value, copyArray);
+      copy[key] = copyObject(value, copyArray); // recursive call
     } else {
       // Primitives are copied over directly
-      copy[key] = original[key];
+      copy[key] = value;
     }
   }
   if (external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isArray(original)) {
-    original.forEach(callback);
+    original.forEach(function (item, index) {
+      return callback(item, index);
+    });
   } else {
     external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().objectEach(original, callback);
   }
   return copy;
-}
-var copyObject = function copyObject(obj, copyArray) {
-  return doCopy({}, obj, copyArray);
 };
 
 // EXTERNAL MODULE: external {"root":"Vue","commonjs":"vue","commonjs2":"vue","amd":"vue"}
@@ -144,19 +146,18 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 
 
-function destroyChart() {
-  if (this && this.chart && this.chart.destroy) {
-    this.chart.destroy();
-  }
-}
 var generateVueComponent = function generateVueComponent(Highcharts) {
+  var _this = this;
   return {
     render: function render() {
       return (0,external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_.h)('div', {
         ref: 'chart'
       });
     },
-    beforeUnmount: destroyChart,
+    beforeUnmount: function beforeUnmount() {
+      var _this$chart;
+      return _this === null || _this === void 0 || (_this$chart = _this.chart) === null || _this$chart === void 0 ? void 0 : _this$chart.destroy();
+    },
     props: {
       constructorType: {
         type: String,
@@ -184,8 +185,8 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
     watch: {
       options: {
         handler: function handler(newValue) {
-          var _this$chart;
-          (_this$chart = this.chart).update.apply(_this$chart, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
+          var _this$chart2;
+          (_this$chart2 = this.chart).update.apply(_this$chart2, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
         },
         deep: true
       }

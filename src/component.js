@@ -1,16 +1,10 @@
 import { copyObject } from './utils';
 import { h } from 'vue';
 
-function destroyChart () {
-    if (this && this.chart && this.chart.destroy) {
-        this.chart.destroy();
-    }
-}
-
 const generateVueComponent = function (Highcharts) {
     return {
         render () { return h('div', { ref: 'chart' }); },
-        beforeUnmount: destroyChart,
+        beforeUnmount: () => this?.chart?.destroy(),
         props: {
             constructorType: {
                 type: String,

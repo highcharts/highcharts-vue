@@ -1,32 +1,31 @@
 import H from 'highcharts';
 
-function doCopy (copy, original, copyArray) {
+const copyObject = function (original, copyArray) {
+    // Initialize the copy based on the original's type
+    const copy = H.isArray(original) ? [] : {};
+
     // Callback function to iterate on array or object elements
-    function callback (value, key) {
+    function callback(value, key) {
         // Copy the contents of objects
         if (
             H.isObject(value, !copyArray) &&
             !H.isClass(value) &&
             !H.isDOMElement(value)
         ) {
-            copy[key] = doCopy(copy[key] || H.isArray(value) ? [] : {}, value, copyArray);
+            copy[key] = copyObject(value, copyArray); // recursive call
         } else {
             // Primitives are copied over directly
-            copy[key] = original[key];
+            copy[key] = value;
         }
     }
 
     if (H.isArray(original)) {
-        original.forEach(callback);
+        original.forEach((item, index) => callback(item, index));
     } else {
         H.objectEach(original, callback);
     }
 
     return copy;
-}
-
-const copyObject = function (obj, copyArray) {
-    return doCopy({}, obj, copyArray);
 };
 
 export { copyObject };

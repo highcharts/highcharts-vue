@@ -1,8 +1,8 @@
 # Highcharts-Vue
 
-**Official Highcharts integration with Vue framework.**
+**The official Highcharts integration with Vue.**
 
-> ❗ **_IMPORTANT NOTE:_**  From `highcharts-vue@2.0.0`, this package offers support for Vue >= 3.0.0. If you'd like to use this package with Vue 2, you should stay with the latest versions of `highcharts-vue@1.x.x` ❗
+> ❗ **_IMPORTANT NOTE:_**  From `highcharts-vue@2.0.0`, this package offers support for Vue >= 3.0.0. If you'd like to use this package with Vue 2, you should stay with the latest versions of `highcharts-vue@1.x.x` (Note: [Vue2 is getting officially deprecated](https://blog.vuejs.org/posts/vue-2-eol)❗
 
 ## Table of Contents
 
@@ -39,10 +39,10 @@ Install `highcharts-vue` package by:
 npm install highcharts-vue
 ```
 ### Usage
-There are two ways of adding Highcharts-Vue wrapper to your project:
+There are two ways of adding the Highcharts-Vue package to your project:
 
 #### Registering globally as a plugin
-The way described below is recommended when wanted to make a wrapper component available from everywhere in your app. In your main app file should have Vue and Highcharts-Vue packages imported:
+The way described below is recommended when wanted to make the HighchartsVue component available from everywhere in your app. In your main app file should have Vue and Highcharts-Vue packages imported:
 
 ```js
 import Vue from 'vue';
@@ -66,12 +66,12 @@ import { Chart } from 'highcharts-vue'
 Then, you can use the `Chart` component in your Vue components.
 
 *NOTE:*
-*If you would like to use Highcharts-Vue wrapper by attaching it using `<script>` tag in your `<head>` section of HTML document, of course it is possible and you should use one of .js files from `dist` of this package directory. After that, the `HighchartsVue` object should be available from `window` scope. Here is the example with this way of implementation: [JSFiddle example](https://jsfiddle.net/BlackLabel/ukc2kqnb/)*
+*If you would like to use Highcharts-Vue integration by attaching it using `<script>` tag in your `<head>` section of HTML document, of course it is possible and you should use one of .js files from `dist` of this package directory. After that, the `HighchartsVue` object should be available from `window` scope. Here is the example with this way of implementation: [JSFiddle example](https://jsfiddle.net/BlackLabel/ukc2kqnb/)*
 
 ### Configure
 
 #### Options parameter
-If you've done one of the above (importing and registering the wrapper), it allows you to use the Highcharts-Vue component in your app, just by adding `<highcharts>` html element, and passing chart configuration object by its `:options` parameter, which is **required**:
+If you've done one of the above (importing and registering the integration), it allows you to use the Highcharts-Vue component in your app, just by adding `<highcharts>` html element, and passing chart configuration object by its `:options` parameter, which is **required**:
 
 ```html
 <highcharts :options="chartOptions"></highcharts>
@@ -105,7 +105,7 @@ Demo: https://codesandbox.io/s/highcharts-vue-demo-fv7m6
 
 #### Implementing stockChart, mapChart and ganttChart
 
-Highcharts-Vue wrapper uses `chart` constructor by default, so if you need to implement `stockChart`, `mapChart` or `ganttChart`,  just add `stock`, `map` or `gantt` module as described above and use `:constructor-type` parameter in your html component element:
+Highcharts-Vue integration uses `chart` constructor by default, so if you need to implement `stockChart`, `mapChart` or `ganttChart`,  just add `stock`, `map` or `gantt` module as described above and use `:constructor-type` parameter in your html component element:
 ```js
 import Highcharts from 'highcharts'
 import stockInit from 'highcharts/modules/stock'
@@ -122,7 +122,7 @@ Gantt demo: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
 
 #### Loading maps
 
-There are two ways of loading maps and using them with wrapper. You can install the [@highcharts/map-collection`](https://www.npmjs.com/package/@highcharts/map-collection) npm package with all maps included, and then import that maps which you would like to use in your project:
+There are two ways of loading maps and using them with this package. You can install the [@highcharts/map-collection`](https://www.npmjs.com/package/@highcharts/map-collection) npm package with all maps included, and then import that maps which you would like to use in your project:
 
 ```js
 import Highcharts from 'highcharts'
@@ -143,11 +143,13 @@ Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z
 #### Changing global component tag name
 If you would like to use global component tag name other than `<highcharts>`, you could achieve that by passing object with `tagName: [TAG_NAME]` pair as an option argument when registering the plugin, for example:
 ```js
-import Vue from 'vue'
+import { createApp } from 'vue'
+import App from './App.vue'
 import HighchartsVue from 'highcharts-vue'
 
-Vue.use(HighchartsVue, {tagName: 'charts'})
-``` 
+const app = createApp(App)
+app.use(HighchartsVue, { tagName: 'charts' })
+```
 It allows you to use:
 ```html
 <charts :options="chartOptions"></charts>
@@ -161,7 +163,7 @@ Then, `someFunction` will be called when chart is loaded.
 
 #### Chart object reference
 
-You can access the Chart object instance if necessary (e.g when need to get some data or use any of `Chart.prototype` functions), by calling specific Vue component instance `chart` field, but it is *not supported* to update the chart using its built-in functions, because that could cause a problems with data synchronization between your app and the chart itself (it disturbs conception of using wrappers). The most recommended way of implementing it, is to use it in the way presented in demo apps.
+You can access the Chart object instance if necessary (e.g when need to get some data or use any of `Chart.prototype` functions), by calling specific Vue component instance `chart` field, but it is *not supported* to update the chart using its built-in functions, because that could cause a problems with data synchronization between your app and the chart itself (it disturbs conception of using integration packages). The most recommended way of implementing it, is to use it in the way presented in demo apps.
 
 #### Using Highcharts `setOptions()` method
 
@@ -179,14 +181,16 @@ Highcharts.setOptions({
 
 Occasionally you'll want to create your charts basing on specific Highcharts version for some reason. Then you can set it up in two different ways, depending on your individual needs.
 
-The **first one** is by setting a Highcharts instance while registering a wrapper component as a global plugin, by passing it through the `options` of Vue's install function, as below:
+The **first one** is by setting a Highcharts instance while registering the HighchartsVue component as a global plugin, by passing it through the `options` of Vue's install function, as below:
 
 ```js
-import Vue from 'vue'
+import { createApp } from 'vue'
+import App from './App.vue';
 import Highcharts from 'highcharts'
 import HighchartsVue from 'highcharts-vue'
 
-Vue.use(HighchartsVue, {
+const app = createApp(App)
+app.use(HighchartsVue, {
 	highcharts: Highcharts
 })
 ```
@@ -217,22 +221,7 @@ export default {
 }
 ```
 
-*Note that both ways of usage are **optional**, because wrapper automatically uses available Highcharts instance by default from peer dependency.*
-
-## Demo apps (only `highcharts-vue@1.x.x`)
-
-If you would like to play with live app created with this package, or just want to see how it everything should looks like, this repository include the demo examples, which you can simply run locally on your machine. To achieve that, clone this repository, open terminal/console and enter below commands from the repository root level:
-
-To run the demo based on Vue v2:
-```cli
-npm run build:app-v2
-npm run app-v2
-```
-or Vue 3:
-```cli
-npm run build:app-v3
-npm run app-v3
-```
+*Note that both ways of usage are **optional**, because this package automatically uses available Highcharts instance by default from peer dependency.*
 
 Server always runs at `http://localhost:8080`, unless it's taken by another process. Then you need to manually copy & visit the address displayed in terminal.
 
@@ -244,12 +233,12 @@ Server always runs at `http://localhost:8080`, unless it's taken by another proc
 - Gantt: https://codesandbox.io/s/highcharts-vue-demo-s8gcg
 - Store: https://codesandbox.io/s/highcharts-vue-demo-zrok6
 - NuxtJS (with SSR): https://codesandbox.io/s/z8jovxx04
-- Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m 
+- Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m
 - Synchronized charts: https://codesandbox.io/s/vue-template-jyp7o
 
 ## Component Properties
 
-Here is the list of all available props allowed to pass directly to your `<highcharts>` component instance, which wrapper is able to handle.
+Here is the list of all available props allowed to pass directly to your `<highcharts>` component instance, which this integration is able to handle.
 
 | Parameter | Type | Required | Description |
 | --------- | :----: | :--------: | ----------- |

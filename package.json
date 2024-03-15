@@ -1,6 +1,6 @@
 {
     "name": "highcharts-vue",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Integration that allows easy Highcharts use in Vue 3.",
     "main": "dist/highcharts-vue.min.js",
     "typings": "types/highcharts-vue.d.ts",

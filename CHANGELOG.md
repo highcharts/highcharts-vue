@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/highcharts/highcharts-vue/compare/v2.0.0...v2.0.1) (2024-03-15)
+* Fixed a bug related to the type definitions (on all Vue 3 global components instead of only HighchartsVue).
+
 ### [2.0.0](https://github.com/highcharts/highcharts-vue/pull/258) (2024-02-08)
 * ❗ **From `highcharts-vue@2.0.0`, this package will only be compatible with Vue 3.** ❗
 * Added full TypeScript support for Vue 3.

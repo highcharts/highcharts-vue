@@ -13,7 +13,7 @@ export interface ChartProps {
 
 declare module '@vue/runtime-core' {
     export interface GlobalComponents {
-        [key: string]: DefineComponent<ChartProps, {}, {}>
+        HighchartsVue: DefineComponent<ChartProps, {}, {}>
     }
 }
 

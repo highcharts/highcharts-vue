@@ -116,6 +116,17 @@ exportingInit(Highcharts);
 
 Demo: https://codesandbox.io/s/highcharts-vue-demo-fv7m6
 
+##### Since Highcharts v12
+
+> Please note that since Highcharts v12, there's a new way of loading modules, described in the Upgrade Nodes - https://www.highcharts.com/changelog/#highcharts-v12.0.0
+
+Since Highcharts v12, the imported modules will be directly applied:
+
+```js
+import * as Highcharts from "highcharts";
+import "highcharts/modules/exporting";
+```
+
 #### Implementing stockChart, mapChart and ganttChart
 
 Highcharts-Vue integration uses `chart` constructor by default, so if you need to implement `stockChart`, `mapChart` or `ganttChart`, just add `stock`, `map` or `gantt` module as described above and use `:constructor-type` parameter in your html component element:
@@ -133,8 +144,6 @@ stockInit(Highcharts);
   :options="chartOptions"
 ></highcharts>
 ```
-
-> Please note that since Highcharts v12, there's a new way of loading modules, described in the Upgrade Nodes - https://www.highcharts.com/changelog/#highcharts-v12.0.0
 
 Stock demo: https://codesandbox.io/s/highcharts-vue-demo-qkf43 <br>
 Map demo: https://codesandbox.io/s/highcharts-vue-demo-cop9z <br>

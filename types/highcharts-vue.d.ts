@@ -13,13 +13,13 @@ export interface ChartProps {
 
 declare module '@vue/runtime-core' {
     export interface GlobalComponents {
-        HighchartsVue: DefineComponent<ChartProps, {}, {}>
+        HighchartsVue: DefineComponent<ChartProps, { chart: Highcharts.Chart }, {}>
     }
 }
 
 export type ChartUpdateArgs = [boolean, boolean, Highcharts.AnimationOptionsObject];
 
-export const Chart: DefineComponent<ChartProps>;
+export const Chart: DefineComponent<ChartProps, { chart: Highcharts.Chart }>;
 
 export interface HCVueInstallOptions {
     tagName?: string;

@@ -127,6 +127,8 @@ import * as Highcharts from "highcharts";
 import "highcharts/modules/exporting";
 ```
 
+Demo: https://codesandbox.io/s/highcharts-vue-import-modules-forked-cv6pfw
+
 #### Implementing stockChart, mapChart and ganttChart
 
 Highcharts-Vue integration uses `chart` constructor by default, so if you need to implement `stockChart`, `mapChart` or `ganttChart`, just add `stock`, `map` or `gantt` module as described above and use `:constructor-type` parameter in your html component element:
@@ -158,6 +160,10 @@ import * as Highcharts from "highcharts";
 import "highcharts/modules/stock";
 ```
 
+Stock demo: https://codesandbox.io/s/hcvue-stock-demo-v12-forked-ypzdlt <br>
+Map demo: https://codesandbox.io/s/hcvue-map-demo-v12-forked-hn56gy <br>
+Gantt demo: https://codesandbox.io/s/hcvue-gantt-demo-v12-forked-d6zqf5
+
 #### Loading maps
 
 There are two ways of loading maps and using them with this package. You can install the [@highcharts/map-collection`](https://www.npmjs.com/package/@highcharts/map-collection) npm package with all maps included, and then import that maps which you would like to use in your project:
@@ -184,11 +190,13 @@ Since Highcharts v12, the imported modules will be directly applied:
 
 ```js
 import * as Highcharts from "highcharts";
-import "highcharts/modules/maps";
+import "highcharts/modules/map";
 import mapData from "@highcharts/map-collection/custom/world.geo.json";
 
 Highcharts.maps["myMapName"] = mapData;
 ```
+
+Demo: https://codesandbox.io/s/hcvue-map-demo-v12-forked-hn56gy
 
 #### Changing global component tag name
 
@@ -295,6 +303,12 @@ Server always runs at `http://localhost:8080`, unless it's taken by another proc
 - NuxtJS (with SSR): https://codesandbox.io/s/z8jovxx04
 - Portals: https://codesandbox.io/s/highcharts-vue-demo-voo9m
 - Synchronized charts: https://codesandbox.io/s/vue-template-jyp7o
+
+### Highcharts 12+ and Vue 3 Demos
+- Module import: https://codesandbox.io/s/highcharts-vue-import-modules-forked-cv6pfw
+- Stock: https://codesandbox.io/s/hcvue-stock-demo-v12-forked-ypzdlt
+- Map: https://codesandbox.io/s/hcvue-map-demo-v12-forked-hn56gy
+- Gantt: https://codesandbox.io/s/hcvue-gantt-demo-v12-forked-d6zqf5
 
 ## Component Properties
 

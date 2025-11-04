@@ -196,7 +196,7 @@ import mapData from "@highcharts/map-collection/custom/world.geo.json";
 Highcharts.maps["myMapName"] = mapData;
 ```
 
-Demo: https://codesandbox.io/s/hcvue-map-demo-v12-forked-hn56gy
+Map demo: https://codesandbox.io/s/hcvue-map-demo-v12-forked-hn56gy
 
 #### Changing global component tag name
 

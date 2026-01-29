@@ -19,7 +19,14 @@
         "url": "https://github.com/highcharts/highcharts-vue/issues"
     },
     "license": "SEE LICENSE IN LICENSE",
-    "files": ["dist", "src", "types"],
+    "files": [
+        "dist/",
+        "src/",
+        "types/",
+        "CHANGELOG.md",
+        "LICENSE.txt",
+        "README.md"
+    ],
     "husky": {
         "hooks": {
             "pre-commit": "npm run lint"

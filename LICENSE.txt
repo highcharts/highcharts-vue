@@ -1,0 +1,125 @@
+Use of this software is governed by the Highsoft Standard License Agreement
+found at:
+
+https://www.highcharts.com/license
+
+And the following Official Integration License Terms below.
+By installing or using this software, you agree to these terms.
+
+---
+
+
+
+Official Integration License Terms
+==================================
+
+These Integration License Terms ("Integration Terms") govern the use of Highsoft's Official Integrations. By downloading, installing, or using any Official Integration, you ("Licensee") agree to these Integration Terms.
+
+
+
+ 1. Relationship to Highsoft Software License
+---------------------------------------------
+
+- (I) The Official Integrations are provided as an optional additional service and may only be used in conjunction by Licensee with a valid Highsoft software license (“Software License”).
+
+- (II) These Integration Terms shall not modify or replace the terms of any Software License (“License Terms”).
+
+
+
+ 2. Definition of Official Integration
+--------------------------------------
+
+- Official Integration - shall mean the proprietary software component designed and made available to Licensee by Highsoft which facilitates integration between applications and the Software granted under a valid Software License. The Official Integration provides a streamlined interface, enabling seamless integration of the Software’s features into applications for Android, iOS, and Web environments. Such Official Integrations may include opens source software, and separate terms and conditions for the specific integration may apply. In case of conflict with the Integration Terms herein, such separate terms and conditions shall prevail. Information about the Official Integrations are available and accessible for Licensee at any time, and are available on the Highsoft Website.
+
+
+
+ 3. Grant of License
+--------------------
+
+- (I) Highsoft grants Licensee a **non-exclusive, non-transferable, revocable** right to use the Official Integrations solely in conjunction with the licensed Highsoft software granted under a valid Software License.
+
+- (II) The Integration Terms **do not grant** Licensee any rights to modify, distribute, sublicense, transfer or create derivative works of the Official Integrations, unless otherwise specified in terms and conditions specific to such Official Integration.
+
+
+
+ 4. Ownership and Copyright
+---------------------------
+
+- (I) Highsoft retains all rights, title, and interest in and to the Official Integrations, including, but not limited to copyrights and trademarks.
+
+- (II) Licensee does not acquire any ownership rights or other rights beyond the limited usage rights granted to Licensee in section 3 of these Integration Terms.
+
+
+
+ 5. No Fees, No Support Obligations
+-----------------------------------
+
+- (I) Upon purchase of Licensed Software, Licensee shall pay the agreed License Fee covering the purchase. The Official Integrations are then accessible at no additional cost to Licensee through Highsoft’s Website.
+
+- (II) Highsoft may at its own discretion offer updates or fixes to the Official Integrations. For the avoidance of doubt, nothing in herein shall entail any obligation for Highsoft to provide support, maintenance, or future updates to Licensee.
+
+
+
+ 6. No Warranties
+-----------------
+
+- (I) The Official Integrations are provided "as is", without warranties of any kind, express or implied, including but not limited to: 
+
+  - (a) Merchantability or fitness for a particular purpose;
+
+  - (b) Compatibility or uninterrupted functionality with Licensee’s systems; 
+
+  - (c) Error-free or defect-free performance; or
+
+  - (d) Non-infringement.
+
+
+
+ 7. Limitation of Liability
+---------------------------
+
+- (I) Highsoft shall not be liable for any direct, indirect, incidental, special, or consequential loss or damages arising from the use or inability to use the Official Integrations.
+
+- (II) Licensee assumes all risks associated with the use of the Official Integrations.
+
+
+
+ 8. Relationship to Third-Party Applications
+--------------------------------------------
+
+- (I) These Integration Terms do not constitute any exemption from the terms of use of any third-party application for which the Official Integration is used.
+
+- (II) Licensee is fully and solely responsible for compliance with the terms of use for any third-party application.
+
+- (III) Licensee shall indemnify Highsoft against any claims relating to the use of Official Integrations in violation with terms and conditions for third-party applications. 
+
+
+
+ 9. Termination
+---------------
+
+- (I) These Integration Terms automatically terminate upon the expiration, termination or revocation of Licensee’s Software License.
+
+- (II) Regardless of the validity of Licensee’s Software License, Highsoft reserves the right to discontinue or revoke access to the Official Integrations at any time and at its own discretion.
+
+
+
+ 10. Miscellaneous
+------------------
+
+- (I) These Integration Terms apply only to the use of Official Integrations and do not constitute an amendment or modification of the License Terms in any way. Neither do they extend or limit the rights granted to Licensee in such License Terms, nor extend Highsoft’s liabilities, warranties, indemnifications or other obligations following the License Terms.
+
+- (II) Highsoft may modify these Integration Terms at any time by publishing an updated version on its website. The most recent version of the Integration Terms published on Highsoft’s Website at any given time shall govern Licensee’s use of Official Integrations, regardless of which version was applicable at the time of Licensee’s purchase of the Software License or at the time of Licensee’s installation or download of the Official Integrations.
+
+
+
+ 11. Applicable Law and Venue
+-----------------------------
+
+- (I) These Integrations Terms shall be governed by and construed in accordance with the laws of Norway.
+
+- (II) Either Party may bring any dispute, controversy or claim to be finally settled by the regular courts of Norway. Both Parties hereby agree to and accept Sogn and Fjordane District Court (Sogn og Fjordane tingrett) as exclusive legal venue, in the first instance.
+
+
+
+***

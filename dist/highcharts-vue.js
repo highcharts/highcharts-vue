@@ -7,39 +7,39 @@
 		exports["HighchartsVue"] = factory(require("highcharts"), require("vue"));
 	else
 		root["HighchartsVue"] = factory(root["Highcharts"], root["Vue"]);
-})(self, (__WEBPACK_EXTERNAL_MODULE__879__, __WEBPACK_EXTERNAL_MODULE__744__) => {
+})(self, (__WEBPACK_EXTERNAL_MODULE__612__, __WEBPACK_EXTERNAL_MODULE__154__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 879:
-/***/ ((module) => {
+/***/ 612
+(module) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__879__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__612__;
 
-/***/ }),
+/***/ },
 
-/***/ 744:
-/***/ ((module) => {
+/***/ 154
+(module) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__744__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__154__;
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
+/******/ 	const __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
 /******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
@@ -57,7 +57,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__744__;
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			const getter = module && module.__esModule ?
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -67,11 +67,26 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__744__;
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
+/******/ 		// define getter/value functions for harmony exports
 /******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 			if(Array.isArray(definition)) {
+/******/ 				var i = 0;
+/******/ 				while(i < definition.length) {
+/******/ 					var key = definition[i++];
+/******/ 					var binding = definition[i++];
+/******/ 					if(!__webpack_require__.o(exports, key)) {
+/******/ 						if(binding === 0) {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, value: definition[i++] });
+/******/ 						} else {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, get: binding });
+/******/ 						}
+/******/ 					} else if(binding === 0) { i++; }
+/******/ 				}
+/******/ 			} else {
+/******/ 				for(var key in definition) {
+/******/ 					if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 						Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 					}
 /******/ 				}
 /******/ 			}
 /******/ 		};
@@ -86,7 +101,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__744__;
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
 /******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			if(Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
@@ -94,24 +109,23 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__744__;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
+let __webpack_exports__ = {};
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   Chart: () => (/* binding */ Chart),
-  "default": () => (/* binding */ install)
+  "default": () => (/* binding */ src),
+  install: () => (/* binding */ install)
 });
 
 // EXTERNAL MODULE: external {"root":"Highcharts","commonjs":"highcharts","commonjs2":"highcharts","amd":"highcharts"}
-var external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_ = __webpack_require__(879);
+var external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_ = __webpack_require__(612);
 var external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default = /*#__PURE__*/__webpack_require__.n(external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_);
-;// CONCATENATED MODULE: ./src/utils.js
+;// ./src/utils.js
 
-var copyObject = function copyObject(original, copyArray) {
+var _copyObject = function copyObject(original, copyArray) {
   // Initialize the copy based on the original's type
   var copy = external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isArray(original) ? [] : {};
 
@@ -119,7 +133,7 @@ var copyObject = function copyObject(original, copyArray) {
   function callback(value, key) {
     // Copy the contents of objects
     if (external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isObject(value, !copyArray) && !external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isClass(value) && !external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default().isDOMElement(value)) {
-      copy[key] = copyObject(value, copyArray); // recursive call
+      copy[key] = _copyObject(value, copyArray); // recursive call
     } else {
       // Primitives are copied over directly
       copy[key] = value;
@@ -136,15 +150,15 @@ var copyObject = function copyObject(original, copyArray) {
 };
 
 // EXTERNAL MODULE: external {"root":"Vue","commonjs":"vue","commonjs2":"vue","amd":"vue"}
-var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_ = __webpack_require__(744);
-;// CONCATENATED MODULE: ./src/component.js
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+var external_root_Vue_commonjs_vue_commonjs2_vue_amd_vue_ = __webpack_require__(154);
+;// ./src/component.js
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+;
 
 var generateVueComponent = function generateVueComponent(Highcharts) {
   var _this = this;
@@ -185,8 +199,10 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
     watch: {
       options: {
         handler: function handler(newValue) {
-          var _this$chart2;
-          (_this$chart2 = this.chart).update.apply(_this$chart2, [copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
+          if (this.chart) {
+            var _this$chart2;
+            (_this$chart2 = this.chart).update.apply(_this$chart2, [_copyObject(newValue, this.deepCopyOnUpdate)].concat(_toConsumableArray(this.updateArgs)));
+          }
         },
         deep: true
       }
@@ -201,14 +217,14 @@ var generateVueComponent = function generateVueComponent(Highcharts) {
         console.error('The "options" parameter was not passed.');
         return;
       }
-      this.chart = HC[this.constructorType](this.$refs.chart, copyObject(this.options, true),
+      this.chart = HC[this.constructorType](this.$refs.chart, _copyObject(this.options, true),
       // Always pass the deep copy when generating a chart. #80
       this.callback ? this.callback : null);
     }
   };
 };
 /* harmony default export */ const component = (generateVueComponent);
-;// CONCATENATED MODULE: ./src/index.js
+;// ./src/index.js
 
 
 var Chart = component((external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default()));
@@ -216,8 +232,7 @@ function install(app) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   app.component(options.tagName || 'highcharts', component(options.highcharts || (external_root_Highcharts_commonjs_highcharts_commonjs2_highcharts_amd_highcharts_default())));
 }
-})();
-
+/* harmony default export */ const src = (install);
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;

@@ -26,4 +26,6 @@ export interface HCVueInstallOptions {
     highcharts?: typeof Highcharts;
 }
 
-export default function install(app: App, options?: HCVueInstallOptions): void;
+export declare function install(app: App, options?: HCVueInstallOptions): void;
+
+export default install;

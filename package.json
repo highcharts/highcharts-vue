@@ -13,7 +13,7 @@
     "author": "Jakub Szumiński <jakubszuminski0@gmail.com>",
     "repository": {
         "type": "git",
-        "url": "git+"
+        "url": "git+https://github.com/highcharts/highcharts-vue.git"
     },
     "bugs": {
         "url": "https://github.com/highcharts/highcharts-vue/issues"

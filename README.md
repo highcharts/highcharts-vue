@@ -4,6 +4,15 @@
 
 > ❗ **_IMPORTANT NOTE:_** From `highcharts-vue@2.0.0`, this package offers support for Vue >= 3.0.0. If you'd like to use this package with Vue 2, you should stay with the latest versions of `highcharts-vue@1.x.x` (Note: [Vue2 is getting officially deprecated](https://blog.vuejs.org/posts/vue-2-eol)❗
 
+## Links
+
+* Official website: [www.highcharts.com](https://www.highcharts.com)
+* Product page: [www.highcharts.com/integrations/vue](https://www.highcharts.com/integrations/vue)
+* Download: [www.highcharts.com/download](https://www.highcharts.com/download)
+* License: [www.highcharts.com/license](https://www.highcharts.com/license)
+* Support: [www.highcharts.com/support](https://www.highcharts.com/support)
+* Issues: [Working repo](https://github.com/highcharts/highcharts/issues)
+
 ## Table of Contents
 
 1. [Getting started](#getting-started)

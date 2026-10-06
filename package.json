@@ -18,7 +18,7 @@
     "bugs": {
         "url": "https://github.com/highcharts/highcharts-vue/issues"
     },
-    "license": "SEE LICENSE IN LICENSE",
+    "license": "See license in LICENSE.txt",
     "files": [
         "dist/",
         "src/",

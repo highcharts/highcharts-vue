@@ -4,7 +4,7 @@ import { h } from 'vue';
 const generateVueComponent = function (Highcharts) {
     return {
         render () { return h('div', { ref: 'chart' }); },
-        beforeUnmount: () => this?.chart?.destroy(),
+        beforeUnmount () { this.chart?.destroy(); },
         props: {
             constructorType: {
                 type: String,
